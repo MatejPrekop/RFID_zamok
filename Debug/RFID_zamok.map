@@ -13,7 +13,6 @@ Allocating common symbols
 Common symbol       size              file
 
 errno               0x4               c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libnosys.a(errno.o)
-RCC_Clocks          0x10              src\main.o
 
 Discarded input sections
 
@@ -26,12 +25,25 @@ Discarded input sections
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
  .text.NVIC_PriorityGroupConfig
                 0x00000000       0x24 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .text.NVIC_Init
+                0x00000000       0xc0 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
  .text.NVIC_SetVectorTable
                 0x00000000       0x2c Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
  .text.NVIC_SystemLPConfig
                 0x00000000       0x40 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
  .text.SysTick_CLKSourceConfig
                 0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .debug_info    0x00000000      0x55a Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .debug_abbrev  0x00000000      0x149 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .debug_aranges
+                0x00000000       0x40 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .debug_ranges  0x00000000       0x30 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .debug_line    0x00000000      0x242 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .debug_str     0x00000000      0x40e Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .debug_frame   0x00000000       0xd8 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .ARM.attributes
+                0x00000000       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
  .text          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
  .data          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
@@ -116,7 +128,7 @@ Discarded input sections
                 0x00000000      0x148 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
  .debug_ranges  0x00000000      0x138 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
  .debug_line    0x00000000      0x592 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
- .debug_str     0x00000000      0x849 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
+ .debug_str     0x00000000      0x835 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
  .debug_frame   0x00000000      0x5fc Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_adc.o
  .ARM.attributes
@@ -165,7 +177,7 @@ Discarded input sections
                 0x00000000       0xa8 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o
  .debug_ranges  0x00000000       0x98 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o
  .debug_line    0x00000000      0x364 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o
- .debug_str     0x00000000      0x49d Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o
+ .debug_str     0x00000000      0x489 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o
  .debug_frame   0x00000000      0x2cc Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o
  .ARM.attributes
@@ -191,7 +203,7 @@ Discarded input sections
                 0x00000000       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o
  .debug_ranges  0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o
  .debug_line    0x00000000      0x674 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o
- .debug_str     0x00000000      0x3cb Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o
+ .debug_str     0x00000000      0x3b7 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o
  .debug_frame   0x00000000      0x100 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes_util.o
  .ARM.attributes
@@ -219,7 +231,7 @@ Discarded input sections
                 0x00000000       0x50 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o
  .debug_ranges  0x00000000       0x40 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o
  .debug_line    0x00000000      0x27d Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o
- .debug_str     0x00000000      0x304 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o
+ .debug_str     0x00000000      0x2f0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o
  .debug_frame   0x00000000      0x120 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_comp.o
  .ARM.attributes
@@ -245,7 +257,7 @@ Discarded input sections
                 0x00000000       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o
  .debug_ranges  0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o
  .debug_line    0x00000000      0x223 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o
- .debug_str     0x00000000      0x29f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o
+ .debug_str     0x00000000      0x28b Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o
  .debug_frame   0x00000000       0xe8 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_crc.o
  .ARM.attributes
@@ -292,7 +304,7 @@ Discarded input sections
                 0x00000000       0xa0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o
  .debug_ranges  0x00000000       0x90 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o
  .debug_line    0x00000000      0x356 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o
- .debug_str     0x00000000      0x4a7 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o
+ .debug_str     0x00000000      0x493 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o
  .debug_frame   0x00000000      0x2ac Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dac.o
  .ARM.attributes
@@ -316,7 +328,7 @@ Discarded input sections
                 0x00000000       0x40 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o
  .debug_ranges  0x00000000       0x30 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o
  .debug_line    0x00000000      0x209 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o
- .debug_str     0x00000000      0x294 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o
+ .debug_str     0x00000000      0x280 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o
  .debug_frame   0x00000000       0xc8 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dbgmcu.o
  .ARM.attributes
@@ -351,7 +363,7 @@ Discarded input sections
                 0x00000000       0x70 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o
  .debug_ranges  0x00000000       0x60 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o
  .debug_line    0x00000000      0x337 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o
- .debug_str     0x00000000      0x41b Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o
+ .debug_str     0x00000000      0x407 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o
  .debug_frame   0x00000000      0x1c8 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_dma.o
  .ARM.attributes
@@ -361,6 +373,8 @@ Discarded input sections
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
  .text.EXTI_DeInit
                 0x00000000       0x30 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .text.EXTI_Init
+                0x00000000       0xe4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
  .text.EXTI_StructInit
                 0x00000000       0x2c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
  .text.EXTI_GenerateSWInterrupt
@@ -369,6 +383,21 @@ Discarded input sections
                 0x00000000       0x34 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
  .text.EXTI_ClearFlag
                 0x00000000       0x1c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .text.EXTI_GetITStatus
+                0x00000000       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .text.EXTI_ClearITPendingBit
+                0x00000000       0x1c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .debug_info    0x00000000      0x35b Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .debug_abbrev  0x00000000      0x1ab Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .debug_aranges
+                0x00000000       0x58 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .debug_ranges  0x00000000       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .debug_line    0x00000000      0x2a5 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .debug_str     0x00000000      0x399 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .debug_frame   0x00000000      0x148 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+ .ARM.attributes
+                0x00000000       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
  .text          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
  .data          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
@@ -460,7 +489,7 @@ Discarded input sections
                 0x00000000      0x160 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
  .debug_ranges  0x00000000      0x150 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
  .debug_line    0x00000000      0x5ab Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
- .debug_str     0x00000000      0x756 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
+ .debug_str     0x00000000      0x742 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
  .debug_frame   0x00000000      0x5c4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash.o
  .ARM.attributes
@@ -474,7 +503,7 @@ Discarded input sections
                 0x00000000       0x58 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o
  .debug_ranges  0x00000000       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o
  .debug_line    0x00000000      0x28e Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o
- .debug_str     0x00000000      0x415 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o
+ .debug_str     0x00000000      0x401 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o
  .debug_frame   0x00000000      0x140 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_flash_ramfunc.o
  .ARM.attributes
@@ -496,7 +525,7 @@ Discarded input sections
                 0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o
  .debug_ranges  0x00000000       0x28 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o
  .debug_line    0x00000000      0x293 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o
- .debug_str     0x00000000      0x478 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o
+ .debug_str     0x00000000      0x464 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o
  .debug_frame   0x00000000       0xb0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_fsmc.o
  .ARM.attributes
@@ -506,6 +535,8 @@ Discarded input sections
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
  .text.GPIO_DeInit
                 0x00000000      0x100 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .text.GPIO_Init
+                0x00000000      0x12c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
  .text.GPIO_StructInit
                 0x00000000       0x34 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
  .text.GPIO_PinLockConfig
@@ -530,6 +561,17 @@ Discarded input sections
                 0x00000000       0x28 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
  .text.GPIO_PinAFConfig
                 0x00000000       0x90 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .debug_info    0x00000000      0x65f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .debug_abbrev  0x00000000      0x1a9 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .debug_aranges
+                0x00000000       0x88 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .debug_ranges  0x00000000       0x78 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .debug_line    0x00000000      0x35d Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .debug_str     0x00000000      0x50b Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .debug_frame   0x00000000      0x23c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+ .ARM.attributes
+                0x00000000       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
  .text          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
  .data          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
@@ -604,7 +646,7 @@ Discarded input sections
                 0x00000000      0x120 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
  .debug_ranges  0x00000000      0x110 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
  .debug_line    0x00000000      0x4e4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
- .debug_str     0x00000000      0x6b9 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
+ .debug_str     0x00000000      0x6a5 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
  .debug_frame   0x00000000      0x530 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
  .ARM.attributes
@@ -630,7 +672,7 @@ Discarded input sections
                 0x00000000       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o
  .debug_ranges  0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o
  .debug_line    0x00000000      0x215 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o
- .debug_str     0x00000000      0x2c0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o
+ .debug_str     0x00000000      0x2ac Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o
  .debug_frame   0x00000000       0xf0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_iwdg.o
  .ARM.attributes
@@ -679,7 +721,7 @@ Discarded input sections
                 0x00000000       0xa8 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o
  .debug_ranges  0x00000000       0x98 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o
  .debug_line    0x00000000      0x352 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o
- .debug_str     0x00000000      0x44a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o
+ .debug_str     0x00000000      0x436 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o
  .debug_frame   0x00000000      0x2c0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_lcd.o
  .ARM.attributes
@@ -711,7 +753,7 @@ Discarded input sections
                 0x00000000       0x60 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o
  .debug_ranges  0x00000000       0x50 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o
  .debug_line    0x00000000      0x295 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o
- .debug_str     0x00000000      0x352 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o
+ .debug_str     0x00000000      0x33e Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o
  .debug_frame   0x00000000      0x170 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_opamp.o
  .ARM.attributes
@@ -753,7 +795,7 @@ Discarded input sections
                 0x00000000       0x88 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o
  .debug_ranges  0x00000000       0x78 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o
  .debug_line    0x00000000      0x305 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o
- .debug_str     0x00000000      0x41f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o
+ .debug_str     0x00000000      0x40b Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o
  .debug_frame   0x00000000      0x22c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_pwr.o
  .ARM.attributes
@@ -761,6 +803,10 @@ Discarded input sections
  .text          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .data          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .data.PLLMulTable
+                0x00000000        0x9 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .data.APBAHBPrescTable
+                0x00000000       0x10 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_DeInit
                 0x00000000       0x5c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_HSEConfig
@@ -801,12 +847,18 @@ Discarded input sections
                 0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_PCLK2Config
                 0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .text.RCC_GetClocksFreq
+                0x00000000      0x1b4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_RTCCLKConfig
                 0x00000000       0x64 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_RTCCLKCmd
                 0x00000000       0x20 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_RTCResetCmd
                 0x00000000       0x20 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .text.RCC_AHBPeriphClockCmd
+                0x00000000       0x3c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .text.RCC_APB2PeriphClockCmd
+                0x00000000       0x3c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_APB1PeriphClockCmd
                 0x00000000       0x3c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_AHBPeriphResetCmd
@@ -831,6 +883,17 @@ Discarded input sections
                 0x00000000       0x34 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text.RCC_ClearITPendingBit
                 0x00000000       0x20 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .debug_info    0x00000000      0xa29 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .debug_abbrev  0x00000000      0x1e7 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .debug_aranges
+                0x00000000      0x148 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .debug_ranges  0x00000000      0x138 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .debug_line    0x00000000      0x521 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .debug_str     0x00000000      0x74f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .debug_frame   0x00000000      0x5e4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+ .ARM.attributes
+                0x00000000       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .text          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
  .data          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
@@ -950,7 +1013,7 @@ Discarded input sections
                 0x00000000      0x1d0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
  .debug_ranges  0x00000000      0x1c0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
  .debug_line    0x00000000      0x803 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
- .debug_str     0x00000000      0xba0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
+ .debug_str     0x00000000      0xb8c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
  .debug_frame   0x00000000      0x860 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rtc.o
  .ARM.attributes
@@ -1024,7 +1087,7 @@ Discarded input sections
                 0x00000000      0x108 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o
  .debug_ranges  0x00000000       0xf8 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o
  .debug_line    0x00000000      0x43d Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o
- .debug_str     0x00000000      0x694 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o
+ .debug_str     0x00000000      0x680 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o
  .debug_frame   0x00000000      0x48c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_sdio.o
  .ARM.attributes
@@ -1082,7 +1145,7 @@ Discarded input sections
                 0x00000000       0xd0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
  .debug_ranges  0x00000000       0xc0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
  .debug_line    0x00000000      0x427 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
- .debug_str     0x00000000      0x650 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
+ .debug_str     0x00000000      0x63c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
  .debug_frame   0x00000000      0x3a0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
  .ARM.attributes
@@ -1100,6 +1163,8 @@ Discarded input sections
                 0x00000000       0x18 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
  .text.SYSCFG_USBPuCmd
                 0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .text.SYSCFG_EXTILineConfig
+                0x00000000       0x84 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
  .text.SYSCFG_RITIMSelect
                 0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
  .text.SYSCFG_RITIMInputCaptureConfig
@@ -1114,6 +1179,17 @@ Discarded input sections
                 0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
  .text.SYSCFG_RIHysteresisConfig
                 0x00000000      0x14c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .debug_info    0x00000000      0x43a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .debug_abbrev  0x00000000      0x17a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .debug_aranges
+                0x00000000       0x80 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .debug_ranges  0x00000000       0x70 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .debug_line    0x00000000      0x32f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .debug_str     0x00000000      0x459 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .debug_frame   0x00000000      0x1fc Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+ .ARM.attributes
+                0x00000000       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
  .text          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .data          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
@@ -1290,7 +1366,7 @@ Discarded input sections
                 0x00000000      0x2b8 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .debug_ranges  0x00000000      0x2a8 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .debug_line    0x00000000      0x989 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
- .debug_str     0x00000000      0xc99 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
+ .debug_str     0x00000000      0xc85 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .debug_frame   0x00000000      0xd14 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .ARM.attributes
@@ -1348,25 +1424,12 @@ Discarded input sections
                 0x00000000       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
  .text.USART_ITConfig
                 0x00000000       0x90 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .text.USART_GetFlagStatus
-                0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
  .text.USART_ClearFlag
                 0x00000000       0x20 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
  .text.USART_GetITStatus
                 0x00000000       0xb4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
  .text.USART_ClearITPendingBit
                 0x00000000       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_info    0x00000000      0x9ce Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_abbrev  0x00000000      0x159 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_aranges
-                0x00000000      0x100 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_ranges  0x00000000       0xf0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_line    0x00000000      0x4af Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_str     0x00000000      0x6e3 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_frame   0x00000000      0x490 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .ARM.attributes
-                0x00000000       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
  .text          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
  .data          0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
  .bss           0x00000000        0x0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
@@ -1392,7 +1455,7 @@ Discarded input sections
                 0x00000000       0x58 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
  .debug_ranges  0x00000000       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
  .debug_line    0x00000000      0x240 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
- .debug_str     0x00000000      0x2cb Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
+ .debug_str     0x00000000      0x2b7 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
  .comment       0x00000000       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
  .debug_frame   0x00000000      0x134 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
  .ARM.attributes
@@ -1400,9 +1463,13 @@ Discarded input sections
  .text          0x00000000        0x0 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .data          0x00000000        0x0 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .bss           0x00000000        0x0 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .data.GPIO_PORT
+                0x00000000        0x4 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .rodata.GPIO_PIN
                 0x00000000        0x2 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .rodata.GPIO_CLK
+                0x00000000        0x4 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .data.BUTTON_PORT
                 0x00000000        0x4 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .rodata.BUTTON_PIN
                 0x00000000        0x2 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
@@ -1416,10 +1483,16 @@ Discarded input sections
                 0x00000000        0x1 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .rodata.BUTTON_IRQn
                 0x00000000        0x1 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .text.STM_EVAL_LEDInit
+                0x00000000       0x48 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .text.STM_EVAL_LEDOn
                 0x00000000       0x24 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .text.STM_EVAL_LEDOff
                 0x00000000       0x24 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .text.STM_EVAL_LEDToggle
+                0x00000000       0x34 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .text.STM_EVAL_PBInit
+                0x00000000       0x98 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .text.STM_EVAL_PBGetState
                 0x00000000       0x2c Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .text.STM_SPI_Init
@@ -1434,9 +1507,98 @@ Discarded input sections
                 0x00000000       0xa4 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .text.STM_Get_JOYState
                 0x00000000       0xb8 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .debug_info    0x00000000      0xcbb Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .debug_abbrev  0x00000000      0x200 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .debug_aranges
+                0x00000000       0x78 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .debug_ranges  0x00000000       0x68 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .debug_line    0x00000000      0x3c5 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .debug_str     0x00000000      0xcc0 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .comment       0x00000000       0x7f Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .debug_frame   0x00000000      0x1cc Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .ARM.attributes
+                0x00000000       0x33 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+ .text          0x00000000        0x0 src\RFID.o
+ .data          0x00000000        0x0 src\RFID.o
+ .bss           0x00000000        0x0 src\RFID.o
+ .text.TM_MFRC522_Init
+                0x00000000       0x54 src\RFID.o
+ .text.TM_MFRC522_InitSPI
+                0x00000000       0xbc src\RFID.o
+ .text.SPI2_ReadWrite
+                0x00000000       0x4c src\RFID.o
+ .text.TM_MFRC522_WriteRegister
+                0x00000000       0x60 src\RFID.o
+ .text.TM_MFRC522_ReadRegister
+                0x00000000       0x5c src\RFID.o
+ .text.TM_MFRC522_SetBitMask
+                0x00000000       0x34 src\RFID.o
+ .text.TM_MFRC522_ClearBitMask
+                0x00000000       0x3c src\RFID.o
+ .text.TM_MFRC522_AntennaOn
+                0x00000000       0x2c src\RFID.o
+ .text.TM_MFRC522_AntennaOff
+                0x00000000       0x10 src\RFID.o
+ .text.TM_MFRC522_Reset
+                0x00000000       0x10 src\RFID.o
+ .text.getFirmwareVersion
+                0x00000000       0x1c src\RFID.o
+ .text.TM_MFRC522_Request
+                0x00000000       0x4c src\RFID.o
+ .text.TM_MFRC522_Check
+                0x00000000       0x34 src\RFID.o
+ .text.TM_MFRC522_Compare
+                0x00000000       0x40 src\RFID.o
+ .text.TM_MFRC522_ToCard
+                0x00000000      0x1a0 src\RFID.o
+ .text.TM_MFRC522_Anticoll
+                0x00000000       0x7c src\RFID.o
+ .text.TM_MFRC522_CalculateCRC
+                0x00000000       0x94 src\RFID.o
+ .text.TM_MFRC522_SelectTag
+                0x00000000       0x88 src\RFID.o
+ .text.TM_MFRC522_Auth
+                0x00000000       0xac src\RFID.o
+ .text.TM_MFRC522_Read
+                0x00000000       0x58 src\RFID.o
+ .text.TM_MFRC522_Write
+                0x00000000       0xdc src\RFID.o
+ .text.TM_MFRC522_Halt
+                0x00000000       0x38 src\RFID.o
+ .debug_info    0x00000000      0xb13 src\RFID.o
+ .debug_abbrev  0x00000000      0x21c src\RFID.o
+ .debug_aranges
+                0x00000000       0xc8 src\RFID.o
+ .debug_ranges  0x00000000       0xb8 src\RFID.o
+ .debug_line    0x00000000      0x4f7 src\RFID.o
+ .debug_str     0x00000000      0x78a src\RFID.o
+ .comment       0x00000000       0x7f src\RFID.o
+ .debug_frame   0x00000000      0x324 src\RFID.o
+ .ARM.attributes
+                0x00000000       0x33 src\RFID.o
  .text          0x00000000        0x0 src\main.o
  .data          0x00000000        0x0 src\main.o
  .bss           0x00000000        0x0 src\main.o
+ .text.RCC_Configuration
+                0x00000000       0x24 src\main.o
+ .text.Delay    0x00000000       0x34 src\main.o
+ .text.Delay_us
+                0x00000000       0x24 src\main.o
+ .text.unless_loop
+                0x00000000        0xc src\main.o
+ .text.Send_int_uart
+                0x00000000       0x38 src\main.o
+ .text.GetKeyt  0x00000000       0x2c src\main.o
+ .text.Send_string_uart
+                0x00000000       0x40 src\main.o
+ .text.Send_char_uart
+                0x00000000       0x34 src\main.o
+ .text.initUART2
+                0x00000000        0xc src\main.o
+ .text.__assert_func
+                0x00000000       0x10 src\main.o
+ .text.__assert
+                0x00000000       0x20 src\main.o
  .text          0x00000000       0x14 src\startup_stm32l1xx_hd.o
  .data          0x00000000        0x0 src\startup_stm32l1xx_hd.o
  .bss           0x00000000        0x0 src\startup_stm32l1xx_hd.o
@@ -1477,7 +1639,7 @@ Discarded input sections
                 0x00000000       0x60 src\tiny_printf.o
  .debug_ranges  0x00000000       0x50 src\tiny_printf.o
  .debug_line    0x00000000      0x2b9 src\tiny_printf.o
- .debug_str     0x00000000      0x5fa src\tiny_printf.o
+ .debug_str     0x00000000      0x5e6 src\tiny_printf.o
  .comment       0x00000000       0x7f src\tiny_printf.o
  .debug_frame   0x00000000      0x1bc src\tiny_printf.o
  .ARM.attributes
@@ -1554,6 +1716,7 @@ LOAD Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
 LOAD Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 LOAD Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
 LOAD Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+LOAD src\RFID.o
 LOAD src\main.o
 LOAD src\startup_stm32l1xx_hd.o
 LOAD src\stm32l1xx_it.o
@@ -1591,273 +1754,210 @@ LOAD c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib
                 0x08000000                g_pfnVectors
                 0x0800013c                . = ALIGN (0x4)
 
-.text           0x0800013c      0xb60
+.text           0x0800013c      0x324
                 0x0800013c                . = ALIGN (0x4)
  *(.text)
  .text          0x0800013c       0x40 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
  *(.text*)
- .text.NVIC_Init
-                0x0800017c       0xc0 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
-                0x0800017c                NVIC_Init
- .text.EXTI_Init
-                0x0800023c       0xe4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
-                0x0800023c                EXTI_Init
- .text.EXTI_GetITStatus
-                0x08000320       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
-                0x08000320                EXTI_GetITStatus
- .text.EXTI_ClearITPendingBit
-                0x08000368       0x1c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
-                0x08000368                EXTI_ClearITPendingBit
- .text.GPIO_Init
-                0x08000384      0x12c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
-                0x08000384                GPIO_Init
- .text.RCC_GetClocksFreq
-                0x080004b0      0x1b4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
-                0x080004b0                RCC_GetClocksFreq
- .text.RCC_AHBPeriphClockCmd
-                0x08000664       0x3c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
-                0x08000664                RCC_AHBPeriphClockCmd
- .text.RCC_APB2PeriphClockCmd
-                0x080006a0       0x3c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
-                0x080006a0                RCC_APB2PeriphClockCmd
- .text.SYSCFG_EXTILineConfig
-                0x080006dc       0x84 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
-                0x080006dc                SYSCFG_EXTILineConfig
- .text.STM_EVAL_LEDInit
-                0x08000760       0x48 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                0x08000760                STM_EVAL_LEDInit
- .text.STM_EVAL_LEDToggle
-                0x080007a8       0x34 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                0x080007a8                STM_EVAL_LEDToggle
- .text.STM_EVAL_PBInit
-                0x080007dc       0x98 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                0x080007dc                STM_EVAL_PBInit
- .text.NVIC_SetPriority
-                0x08000874       0x54 src\main.o
- .text.SysTick_Config
-                0x080008c8       0x44 src\main.o
- .text.main     0x0800090c       0x68 src\main.o
-                0x0800090c                main
- .text.Delay    0x08000974       0x28 src\main.o
-                0x08000974                Delay
- .text.TimingDelay_Decrement
-                0x0800099c       0x24 src\main.o
-                0x0800099c                TimingDelay_Decrement
+ .text.USART_GetFlagStatus
+                0x0800017c       0x38 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+                0x0800017c                USART_GetFlagStatus
+ .text.main     0x080001b4        0x8 src\main.o
+                0x080001b4                main
+ .text.USART2_IRQHandler
+                0x080001bc       0x14 src\main.o
+                0x080001bc                USART2_IRQHandler
  .text.Reset_Handler
-                0x080009c0       0x50 src\startup_stm32l1xx_hd.o
-                0x080009c0                Reset_Handler
+                0x080001d0       0x50 src\startup_stm32l1xx_hd.o
+                0x080001d0                Reset_Handler
  .text.Default_Handler
-                0x08000a10        0x2 src\startup_stm32l1xx_hd.o
-                0x08000a10                RTC_Alarm_IRQHandler
-                0x08000a10                EXTI2_IRQHandler
-                0x08000a10                COMP_ACQ_IRQHandler
-                0x08000a10                TIM10_IRQHandler
-                0x08000a10                USB_HP_IRQHandler
-                0x08000a10                TIM6_IRQHandler
-                0x08000a10                PVD_IRQHandler
-                0x08000a10                SDIO_IRQHandler
-                0x08000a10                EXTI3_IRQHandler
-                0x08000a10                EXTI0_IRQHandler
-                0x08000a10                I2C2_EV_IRQHandler
-                0x08000a10                SPI1_IRQHandler
-                0x08000a10                USB_FS_WKUP_IRQHandler
-                0x08000a10                DMA2_Channel2_IRQHandler
-                0x08000a10                DMA1_Channel4_IRQHandler
-                0x08000a10                ADC1_IRQHandler
-                0x08000a10                USART3_IRQHandler
-                0x08000a10                DMA1_Channel7_IRQHandler
-                0x08000a10                LCD_IRQHandler
-                0x08000a10                UART5_IRQHandler
-                0x08000a10                TIM4_IRQHandler
-                0x08000a10                DMA2_Channel1_IRQHandler
-                0x08000a10                I2C1_EV_IRQHandler
-                0x08000a10                DMA1_Channel6_IRQHandler
-                0x08000a10                UART4_IRQHandler
-                0x08000a10                DMA2_Channel4_IRQHandler
-                0x08000a10                TIM3_IRQHandler
-                0x08000a10                RCC_IRQHandler
-                0x08000a10                DMA1_Channel1_IRQHandler
-                0x08000a10                Default_Handler
-                0x08000a10                TIM7_IRQHandler
-                0x08000a10                TIM5_IRQHandler
-                0x08000a10                EXTI9_5_IRQHandler
-                0x08000a10                TIM9_IRQHandler
-                0x08000a10                TAMPER_STAMP_IRQHandler
-                0x08000a10                RTC_WKUP_IRQHandler
-                0x08000a10                SPI2_IRQHandler
-                0x08000a10                DMA2_Channel5_IRQHandler
-                0x08000a10                DMA1_Channel5_IRQHandler
-                0x08000a10                USB_LP_IRQHandler
-                0x08000a10                EXTI4_IRQHandler
-                0x08000a10                DMA1_Channel3_IRQHandler
-                0x08000a10                COMP_IRQHandler
-                0x08000a10                WWDG_IRQHandler
-                0x08000a10                TIM2_IRQHandler
-                0x08000a10                DAC_IRQHandler
-                0x08000a10                EXTI1_IRQHandler
-                0x08000a10                AES_IRQHandler
-                0x08000a10                TIM11_IRQHandler
-                0x08000a10                USART2_IRQHandler
-                0x08000a10                I2C2_ER_IRQHandler
-                0x08000a10                DMA1_Channel2_IRQHandler
-                0x08000a10                FLASH_IRQHandler
-                0x08000a10                USART1_IRQHandler
-                0x08000a10                SPI3_IRQHandler
-                0x08000a10                I2C1_ER_IRQHandler
-                0x08000a10                DMA2_Channel3_IRQHandler
- *fill*         0x08000a12        0x2 
+                0x08000220        0x2 src\startup_stm32l1xx_hd.o
+                0x08000220                RTC_Alarm_IRQHandler
+                0x08000220                EXTI2_IRQHandler
+                0x08000220                COMP_ACQ_IRQHandler
+                0x08000220                TIM10_IRQHandler
+                0x08000220                USB_HP_IRQHandler
+                0x08000220                TIM6_IRQHandler
+                0x08000220                SysTick_Handler
+                0x08000220                PVD_IRQHandler
+                0x08000220                SDIO_IRQHandler
+                0x08000220                EXTI3_IRQHandler
+                0x08000220                EXTI0_IRQHandler
+                0x08000220                I2C2_EV_IRQHandler
+                0x08000220                SPI1_IRQHandler
+                0x08000220                USB_FS_WKUP_IRQHandler
+                0x08000220                DMA2_Channel2_IRQHandler
+                0x08000220                DMA1_Channel4_IRQHandler
+                0x08000220                ADC1_IRQHandler
+                0x08000220                USART3_IRQHandler
+                0x08000220                DMA1_Channel7_IRQHandler
+                0x08000220                LCD_IRQHandler
+                0x08000220                UART5_IRQHandler
+                0x08000220                TIM4_IRQHandler
+                0x08000220                DMA2_Channel1_IRQHandler
+                0x08000220                I2C1_EV_IRQHandler
+                0x08000220                DMA1_Channel6_IRQHandler
+                0x08000220                UART4_IRQHandler
+                0x08000220                DMA2_Channel4_IRQHandler
+                0x08000220                TIM3_IRQHandler
+                0x08000220                RCC_IRQHandler
+                0x08000220                DMA1_Channel1_IRQHandler
+                0x08000220                Default_Handler
+                0x08000220                EXTI15_10_IRQHandler
+                0x08000220                TIM7_IRQHandler
+                0x08000220                TIM5_IRQHandler
+                0x08000220                EXTI9_5_IRQHandler
+                0x08000220                TIM9_IRQHandler
+                0x08000220                TAMPER_STAMP_IRQHandler
+                0x08000220                RTC_WKUP_IRQHandler
+                0x08000220                SPI2_IRQHandler
+                0x08000220                DMA2_Channel5_IRQHandler
+                0x08000220                DMA1_Channel5_IRQHandler
+                0x08000220                USB_LP_IRQHandler
+                0x08000220                EXTI4_IRQHandler
+                0x08000220                DMA1_Channel3_IRQHandler
+                0x08000220                COMP_IRQHandler
+                0x08000220                WWDG_IRQHandler
+                0x08000220                TIM2_IRQHandler
+                0x08000220                DAC_IRQHandler
+                0x08000220                EXTI1_IRQHandler
+                0x08000220                AES_IRQHandler
+                0x08000220                TIM11_IRQHandler
+                0x08000220                I2C2_ER_IRQHandler
+                0x08000220                DMA1_Channel2_IRQHandler
+                0x08000220                FLASH_IRQHandler
+                0x08000220                USART1_IRQHandler
+                0x08000220                SPI3_IRQHandler
+                0x08000220                I2C1_ER_IRQHandler
+                0x08000220                DMA2_Channel3_IRQHandler
+ *fill*         0x08000222        0x2 
  .text.NMI_Handler
-                0x08000a14        0xc src\stm32l1xx_it.o
-                0x08000a14                NMI_Handler
+                0x08000224        0xc src\stm32l1xx_it.o
+                0x08000224                NMI_Handler
  .text.HardFault_Handler
-                0x08000a20        0x8 src\stm32l1xx_it.o
-                0x08000a20                HardFault_Handler
+                0x08000230        0x8 src\stm32l1xx_it.o
+                0x08000230                HardFault_Handler
  .text.MemManage_Handler
-                0x08000a28        0x8 src\stm32l1xx_it.o
-                0x08000a28                MemManage_Handler
+                0x08000238        0x8 src\stm32l1xx_it.o
+                0x08000238                MemManage_Handler
  .text.BusFault_Handler
-                0x08000a30        0x8 src\stm32l1xx_it.o
-                0x08000a30                BusFault_Handler
+                0x08000240        0x8 src\stm32l1xx_it.o
+                0x08000240                BusFault_Handler
  .text.UsageFault_Handler
-                0x08000a38        0x8 src\stm32l1xx_it.o
-                0x08000a38                UsageFault_Handler
+                0x08000248        0x8 src\stm32l1xx_it.o
+                0x08000248                UsageFault_Handler
  .text.SVC_Handler
-                0x08000a40        0xc src\stm32l1xx_it.o
-                0x08000a40                SVC_Handler
+                0x08000250        0xc src\stm32l1xx_it.o
+                0x08000250                SVC_Handler
  .text.DebugMon_Handler
-                0x08000a4c        0xc src\stm32l1xx_it.o
-                0x08000a4c                DebugMon_Handler
+                0x0800025c        0xc src\stm32l1xx_it.o
+                0x0800025c                DebugMon_Handler
  .text.PendSV_Handler
-                0x08000a58        0xc src\stm32l1xx_it.o
-                0x08000a58                PendSV_Handler
- .text.SysTick_Handler
-                0x08000a64        0xc src\stm32l1xx_it.o
-                0x08000a64                SysTick_Handler
- .text.EXTI15_10_IRQHandler
-                0x08000a70       0x40 src\stm32l1xx_it.o
-                0x08000a70                EXTI15_10_IRQHandler
+                0x08000268        0xc src\stm32l1xx_it.o
+                0x08000268                PendSV_Handler
  .text.SystemInit
-                0x08000ab0       0x68 src\system_stm32l1xx.o
-                0x08000ab0                SystemInit
+                0x08000274       0x68 src\system_stm32l1xx.o
+                0x08000274                SystemInit
  .text.SetSysClock
-                0x08000b18      0x120 src\system_stm32l1xx.o
+                0x080002dc      0x120 src\system_stm32l1xx.o
  .text.__libc_init_array
-                0x08000c38       0x4c c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libc_nano.a(lib_a-init.o)
-                0x08000c38                __libc_init_array
+                0x080003fc       0x4c c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libc_nano.a(lib_a-init.o)
+                0x080003fc                __libc_init_array
  *(.glue_7)
- .glue_7        0x08000c84        0x0 linker stubs
+ .glue_7        0x08000448        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08000c84        0x0 linker stubs
+ .glue_7t       0x08000448        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08000c84        0x0 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
+ .eh_frame      0x08000448        0x0 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
  *(.init)
- .init          0x08000c84        0x4 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crti.o
-                0x08000c84                _init
- .init          0x08000c88        0x8 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtn.o
+ .init          0x08000448        0x4 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crti.o
+                0x08000448                _init
+ .init          0x0800044c        0x8 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtn.o
  *(.fini)
- .fini          0x08000c90        0x4 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crti.o
-                0x08000c90                _fini
- .fini          0x08000c94        0x8 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtn.o
-                0x08000c9c                . = ALIGN (0x4)
-                0x08000c9c                _etext = .
+ .fini          0x08000454        0x4 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crti.o
+                0x08000454                _fini
+ .fini          0x08000458        0x8 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtn.o
+                0x08000460                . = ALIGN (0x4)
+                0x08000460                _etext = .
 
-.vfp11_veneer   0x08000c9c        0x0
- .vfp11_veneer  0x08000c9c        0x0 linker stubs
+.vfp11_veneer   0x08000460        0x0
+ .vfp11_veneer  0x08000460        0x0 linker stubs
 
-.v4_bx          0x08000c9c        0x0
- .v4_bx         0x08000c9c        0x0 linker stubs
+.v4_bx          0x08000460        0x0
+ .v4_bx         0x08000460        0x0 linker stubs
 
-.iplt           0x08000c9c        0x0
- .iplt          0x08000c9c        0x0 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
+.iplt           0x08000460        0x0
+ .iplt          0x08000460        0x0 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
 
-.rel.dyn        0x08000c9c        0x0
- .rel.iplt      0x08000c9c        0x0 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
+.rel.dyn        0x08000460        0x0
+ .rel.iplt      0x08000460        0x0 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
 
-.rodata         0x08000c9c        0x0
-                0x08000c9c                . = ALIGN (0x4)
+.rodata         0x08000460        0x0
+                0x08000460                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
-                0x08000c9c                . = ALIGN (0x4)
+                0x08000460                . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x08000c9c        0x0
-                0x08000c9c                __exidx_start = .
+.ARM            0x08000460        0x0
+                0x08000460                __exidx_start = .
  *(.ARM.exidx*)
-                0x08000c9c                __exidx_end = .
+                0x08000460                __exidx_end = .
 
-.preinit_array  0x08000c9c        0x0
-                0x08000c9c                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x08000460        0x0
+                0x08000460                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x08000c9c                PROVIDE (__preinit_array_end, .)
+                0x08000460                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x08000c9c        0x4
-                0x08000c9c                PROVIDE (__init_array_start, .)
+.init_array     0x08000460        0x4
+                0x08000460                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x08000c9c        0x4 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
-                0x08000ca0                PROVIDE (__init_array_end, .)
+ .init_array    0x08000460        0x4 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
+                0x08000464                PROVIDE (__init_array_end, .)
 
-.fini_array     0x08000ca0        0x4
+.fini_array     0x08000464        0x4
                 [!provide]                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08000ca0        0x4 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
+ .fini_array    0x08000464        0x4 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
                 [!provide]                PROVIDE (__fini_array_end, .)
-                0x08000ca4                _sidata = LOADADDR (.data)
+                0x08000468                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x24 load address 0x08000ca4
+.data           0x20000000        0x0 load address 0x08000468
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
  *(.data*)
- .data.PLLMulTable
-                0x20000000        0x9 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
- *fill*         0x20000009        0x3 
- .data.APBAHBPrescTable
-                0x2000000c       0x10 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
- .data.GPIO_PORT
-                0x2000001c        0x4 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                0x2000001c                GPIO_PORT
- .data.BUTTON_PORT
-                0x20000020        0x4 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                0x20000020                BUTTON_PORT
-                0x20000024                . = ALIGN (0x4)
-                0x20000024                _edata = .
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _edata = .
 
-.igot.plt       0x20000024        0x0 load address 0x08000cc8
- .igot.plt      0x20000024        0x0 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
-                0x20000024                . = ALIGN (0x4)
+.igot.plt       0x20000000        0x0 load address 0x08000468
+ .igot.plt      0x20000000        0x0 c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
+                0x20000000                . = ALIGN (0x4)
 
-.bss            0x20000024       0x34 load address 0x08000cc8
-                0x20000024                _sbss = .
-                0x20000024                __bss_start__ = _sbss
+.bss            0x20000000       0x1c load address 0x08000468
+                0x20000000                _sbss = .
+                0x20000000                __bss_start__ = _sbss
  *(.bss)
- .bss           0x20000024       0x1c c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
+ .bss           0x20000000       0x1c c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
  *(.bss*)
- .bss.TimingDelay
-                0x20000040        0x4 src\main.o
- .bss.BlinkSpeed
-                0x20000044        0x1 src\main.o
-                0x20000044                BlinkSpeed
  *(COMMON)
- *fill*         0x20000045        0x3 
- COMMON         0x20000048       0x10 src\main.o
-                0x20000048                RCC_Clocks
-                0x20000058                . = ALIGN (0x4)
-                0x20000058                _ebss = .
-                0x20000058                __bss_end__ = _ebss
+                0x2000001c                . = ALIGN (0x4)
+                0x2000001c                _ebss = .
+                0x2000001c                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000058      0x400 load address 0x08000cc8
-                0x20000058                . = ALIGN (0x4)
+                0x2000001c      0x400 load address 0x08000468
+                0x2000001c                . = ALIGN (0x4)
                 [!provide]                PROVIDE (end, .)
                 [!provide]                PROVIDE (_end, .)
-                0x20000058                . = (. + _Min_Heap_Size)
-                0x20000458                . = (. + _Min_Stack_Size)
- *fill*         0x20000058      0x400 
-                0x20000458                . = ALIGN (0x4)
+                0x2000001c                . = (. + _Min_Heap_Size)
+                0x2000041c                . = (. + _Min_Stack_Size)
+ *fill*         0x2000001c      0x400 
+                0x2000041c                . = ALIGN (0x4)
 
 .memory_b1_text
  *(.mb1text)
@@ -1878,144 +1978,84 @@ LOAD c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib
  .ARM.attributes
                 0x0000001d       0x2d c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
  .ARM.attributes
-                0x0000004a       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+                0x0000004a       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
  .ARM.attributes
-                0x0000007d       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+                0x0000007d       0x33 src\main.o
  .ARM.attributes
-                0x000000b0       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+                0x000000b0       0x21 src\startup_stm32l1xx_hd.o
  .ARM.attributes
-                0x000000e3       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+                0x000000d1       0x33 src\stm32l1xx_it.o
  .ARM.attributes
-                0x00000116       0x33 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+                0x00000104       0x33 src\system_stm32l1xx.o
  .ARM.attributes
-                0x00000149       0x33 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
+                0x00000137       0x2d c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x0000017c       0x33 src\main.o
- .ARM.attributes
-                0x000001af       0x21 src\startup_stm32l1xx_hd.o
- .ARM.attributes
-                0x000001d0       0x33 src\stm32l1xx_it.o
- .ARM.attributes
-                0x00000203       0x33 src\system_stm32l1xx.o
- .ARM.attributes
-                0x00000236       0x2d c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libc_nano.a(lib_a-init.o)
- .ARM.attributes
-                0x00000263       0x1d c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtn.o
+                0x00000164       0x1d c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtn.o
 OUTPUT(RFID_zamok.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x38b8
- .debug_info    0x00000000      0x55a Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
- .debug_info    0x0000055a      0x35b Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
- .debug_info    0x000008b5      0x65f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
- .debug_info    0x00000f14      0xa29 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
- .debug_info    0x0000193d      0x43a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
- .debug_info    0x00001d77      0xcbb Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
- .debug_info    0x00002a32      0x6f2 src\main.o
- .debug_info    0x00003124       0x88 src\startup_stm32l1xx_hd.o
- .debug_info    0x000031ac      0x195 src\stm32l1xx_it.o
- .debug_info    0x00003341      0x577 src\system_stm32l1xx.o
+.debug_info     0x00000000     0x1490
+ .debug_info    0x00000000      0x9ce Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+ .debug_info    0x000009ce      0x3b5 src\main.o
+ .debug_info    0x00000d83       0x74 src\startup_stm32l1xx_hd.o
+ .debug_info    0x00000df7      0x122 src\stm32l1xx_it.o
+ .debug_info    0x00000f19      0x577 src\system_stm32l1xx.o
 
-.debug_abbrev   0x00000000      0xde8
- .debug_abbrev  0x00000000      0x149 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
- .debug_abbrev  0x00000149      0x1ab Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
- .debug_abbrev  0x000002f4      0x1a9 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
- .debug_abbrev  0x0000049d      0x1e7 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
- .debug_abbrev  0x00000684      0x17a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
- .debug_abbrev  0x000007fe      0x200 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
- .debug_abbrev  0x000009fe      0x1de src\main.o
- .debug_abbrev  0x00000bdc       0x12 src\startup_stm32l1xx_hd.o
- .debug_abbrev  0x00000bee       0xb1 src\stm32l1xx_it.o
- .debug_abbrev  0x00000c9f      0x149 src\system_stm32l1xx.o
+.debug_abbrev   0x00000000      0x4b0
+ .debug_abbrev  0x00000000      0x159 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+ .debug_abbrev  0x00000159      0x195 src\main.o
+ .debug_abbrev  0x000002ee       0x12 src\startup_stm32l1xx_hd.o
+ .debug_abbrev  0x00000300       0x67 src\stm32l1xx_it.o
+ .debug_abbrev  0x00000367      0x149 src\system_stm32l1xx.o
 
-.debug_aranges  0x00000000      0x460
+.debug_aranges  0x00000000      0x230
  .debug_aranges
-                0x00000000       0x40 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+                0x00000000      0x100 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
  .debug_aranges
-                0x00000040       0x58 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
+                0x00000100       0x80 src\main.o
  .debug_aranges
-                0x00000098       0x88 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+                0x00000180       0x28 src\startup_stm32l1xx_hd.o
  .debug_aranges
-                0x00000120      0x148 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+                0x000001a8       0x58 src\stm32l1xx_it.o
  .debug_aranges
-                0x00000268       0x80 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
- .debug_aranges
-                0x000002e8       0x78 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
- .debug_aranges
-                0x00000360       0x40 src\main.o
- .debug_aranges
-                0x000003a0       0x28 src\startup_stm32l1xx_hd.o
- .debug_aranges
-                0x000003c8       0x68 src\stm32l1xx_it.o
- .debug_aranges
-                0x00000430       0x30 src\system_stm32l1xx.o
+                0x00000200       0x30 src\system_stm32l1xx.o
 
-.debug_ranges   0x00000000      0x3c8
- .debug_ranges  0x00000000       0x30 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
- .debug_ranges  0x00000030       0x48 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
- .debug_ranges  0x00000078       0x78 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
- .debug_ranges  0x000000f0      0x138 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
- .debug_ranges  0x00000228       0x70 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
- .debug_ranges  0x00000298       0x68 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
- .debug_ranges  0x00000300       0x30 src\main.o
- .debug_ranges  0x00000330       0x20 src\startup_stm32l1xx_hd.o
- .debug_ranges  0x00000350       0x58 src\stm32l1xx_it.o
- .debug_ranges  0x000003a8       0x20 src\system_stm32l1xx.o
+.debug_ranges   0x00000000      0x1e8
+ .debug_ranges  0x00000000       0xf0 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+ .debug_ranges  0x000000f0       0x70 src\main.o
+ .debug_ranges  0x00000160       0x20 src\startup_stm32l1xx_hd.o
+ .debug_ranges  0x00000180       0x48 src\stm32l1xx_it.o
+ .debug_ranges  0x000001c8       0x20 src\system_stm32l1xx.o
 
-.debug_line     0x00000000     0x1b93
- .debug_line    0x00000000      0x242 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
- .debug_line    0x00000242      0x2a5 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
- .debug_line    0x000004e7      0x35d Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
- .debug_line    0x00000844      0x521 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
- .debug_line    0x00000d65      0x32f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
- .debug_line    0x00001094      0x3c5 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
- .debug_line    0x00001459      0x26c src\main.o
- .debug_line    0x000016c5       0x7c src\startup_stm32l1xx_hd.o
- .debug_line    0x00001741      0x23d src\stm32l1xx_it.o
- .debug_line    0x0000197e      0x215 src\system_stm32l1xx.o
+.debug_line     0x00000000      0xbb6
+ .debug_line    0x00000000      0x4af Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+ .debug_line    0x000004af      0x29f src\main.o
+ .debug_line    0x0000074e       0x7c src\startup_stm32l1xx_hd.o
+ .debug_line    0x000007ca      0x1d7 src\stm32l1xx_it.o
+ .debug_line    0x000009a1      0x215 src\system_stm32l1xx.o
 
-.debug_str      0x00000000     0x1a3d
- .debug_str     0x00000000      0x3d5 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
-                                0x422 (size before relaxing)
- .debug_str     0x000003d5      0x1d7 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
-                                0x3ad (size before relaxing)
- .debug_str     0x000005ac      0x32a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
-                                0x51f (size before relaxing)
- .debug_str     0x000008d6      0x520 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
-                                0x763 (size before relaxing)
- .debug_str     0x00000df6      0x27b Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
-                                0x46d (size before relaxing)
- .debug_str     0x00001071      0x7e3 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                                0xcd4 (size before relaxing)
- .debug_str     0x00001854       0x76 src\main.o
-                                0x6fe (size before relaxing)
- .debug_str     0x000018ca       0xbb src\stm32l1xx_it.o
-                                0x27b (size before relaxing)
- .debug_str     0x00001985       0xb8 src\system_stm32l1xx.o
-                                0x398 (size before relaxing)
+.debug_str      0x00000000      0x98a
+ .debug_str     0x00000000      0x65a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+                                0x6cf (size before relaxing)
+ .debug_str     0x0000065a       0xd5 src\main.o
+                                0x2ea (size before relaxing)
+ .debug_str     0x0000072f       0x96 src\stm32l1xx_it.o
+                                0x20b (size before relaxing)
+ .debug_str     0x000007c5      0x1c5 src\system_stm32l1xx.o
+                                0x384 (size before relaxing)
 
 .comment        0x00000000       0x7e
- .comment       0x00000000       0x7e Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
+ .comment       0x00000000       0x7e Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
                                  0x7f (size before relaxing)
- .comment       0x0000007e       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
- .comment       0x0000007e       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
- .comment       0x0000007e       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
- .comment       0x0000007e       0x7f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
- .comment       0x0000007e       0x7f Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
  .comment       0x0000007e       0x7f src\main.o
  .comment       0x0000007e       0x7f src\stm32l1xx_it.o
  .comment       0x0000007e       0x7f src\system_stm32l1xx.o
 
-.debug_frame    0x00000000     0x1098
- .debug_frame   0x00000000       0xd8 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
- .debug_frame   0x000000d8      0x148 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
- .debug_frame   0x00000220      0x23c Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
- .debug_frame   0x0000045c      0x5e4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
- .debug_frame   0x00000a40      0x1fc Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
- .debug_frame   0x00000c3c      0x1cc Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
- .debug_frame   0x00000e08       0xc0 src\main.o
- .debug_frame   0x00000ec8      0x128 src\stm32l1xx_it.o
- .debug_frame   0x00000ff0       0x7c src\system_stm32l1xx.o
- .debug_frame   0x0000106c       0x2c c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libc_nano.a(lib_a-init.o)
+.debug_frame    0x00000000      0x7e4
+ .debug_frame   0x00000000      0x490 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+ .debug_frame   0x00000490      0x1bc src\main.o
+ .debug_frame   0x0000064c       0xf0 src\stm32l1xx_it.o
+ .debug_frame   0x0000073c       0x7c src\system_stm32l1xx.o
+ .debug_frame   0x000007b8       0x2c c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libc_nano.a(lib_a-init.o)
 
 .stabstr        0x00000000       0x3f
  .stabstr       0x00000000       0x3f c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libnosys.a(write.o)
@@ -2110,8 +2150,6 @@ BUTTON_PIN                                        Utilities\STM32L152_Nucleo\stm
 BUTTON_PIN_SOURCE                                 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 BUTTON_PORT                                       Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 BUTTON_PORT_SOURCE                                Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-BlinkSpeed                                        src\main.o
-                                                  src\stm32l1xx_it.o
 BusFault_Handler                                  src\stm32l1xx_it.o
                                                   src\startup_stm32l1xx_hd.o
 COMP_ACQ_IRQHandler                               src\startup_stm32l1xx_hd.o
@@ -2193,9 +2231,10 @@ DebugMon_Handler                                  src\stm32l1xx_it.o
                                                   src\startup_stm32l1xx_hd.o
 Default_Handler                                   src\startup_stm32l1xx_hd.o
 Delay                                             src\main.o
+Delay_us                                          src\main.o
+                                                  src\RFID.o
 EXTI0_IRQHandler                                  src\startup_stm32l1xx_hd.o
-EXTI15_10_IRQHandler                              src\stm32l1xx_it.o
-                                                  src\startup_stm32l1xx_hd.o
+EXTI15_10_IRQHandler                              src\startup_stm32l1xx_hd.o
 EXTI1_IRQHandler                                  src\startup_stm32l1xx_hd.o
 EXTI2_IRQHandler                                  src\startup_stm32l1xx_hd.o
 EXTI3_IRQHandler                                  src\startup_stm32l1xx_hd.o
@@ -2203,12 +2242,10 @@ EXTI4_IRQHandler                                  src\startup_stm32l1xx_hd.o
 EXTI9_5_IRQHandler                                src\startup_stm32l1xx_hd.o
 EXTI_ClearFlag                                    Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
 EXTI_ClearITPendingBit                            Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
-                                                  src\stm32l1xx_it.o
 EXTI_DeInit                                       Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
 EXTI_GenerateSWInterrupt                          Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
 EXTI_GetFlagStatus                                Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
 EXTI_GetITStatus                                  Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
-                                                  src\stm32l1xx_it.o
 EXTI_Init                                         Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 EXTI_StructInit                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_exti.o
@@ -2253,10 +2290,12 @@ FSMC_NORSRAMStructInit                            Libraries\STM32L1xx_StdPeriph_
 GPIO_CLK                                          Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 GPIO_DeInit                                       Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
 GPIO_Init                                         Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+                                                  src\RFID.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 GPIO_PIN                                          Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 GPIO_PORT                                         Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 GPIO_PinAFConfig                                  Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+                                                  src\RFID.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 GPIO_PinLockConfig                                Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
 GPIO_ReadInputData                                Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
@@ -2265,11 +2304,14 @@ GPIO_ReadInputDataBit                             Libraries\STM32L1xx_StdPeriph_
 GPIO_ReadOutputData                               Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
 GPIO_ReadOutputDataBit                            Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
 GPIO_ResetBits                                    Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+                                                  src\RFID.o
 GPIO_SetBits                                      Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+                                                  src\RFID.o
 GPIO_StructInit                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
 GPIO_ToggleBits                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
 GPIO_Write                                        Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
 GPIO_WriteBit                                     Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
+GetKeyt                                           src\main.o
 HardFault_Handler                                 src\stm32l1xx_it.o
                                                   src\startup_stm32l1xx_hd.o
 I2C1_ER_IRQHandler                                src\startup_stm32l1xx_hd.o
@@ -2375,12 +2417,15 @@ PWR_WakeUpPinCmd                                  Libraries\STM32L1xx_StdPeriph_
 PendSV_Handler                                    src\stm32l1xx_it.o
                                                   src\startup_stm32l1xx_hd.o
 RCC_AHBPeriphClockCmd                             Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+                                                  src\main.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 RCC_AHBPeriphClockLPModeCmd                       Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
 RCC_AHBPeriphResetCmd                             Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
                                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
                                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_aes.o
 RCC_APB1PeriphClockCmd                            Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
+                                                  src\main.o
+                                                  src\RFID.o
 RCC_APB1PeriphClockLPModeCmd                      Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
 RCC_APB1PeriphResetCmd                            Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
                                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
@@ -2406,10 +2451,9 @@ RCC_AdjustMSICalibrationValue                     Libraries\STM32L1xx_StdPeriph_
 RCC_ClearFlag                                     Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
 RCC_ClearITPendingBit                             Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
 RCC_ClockSecuritySystemCmd                        Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
-RCC_Clocks                                        src\main.o
+RCC_Configuration                                 src\main.o
 RCC_DeInit                                        Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
 RCC_GetClocksFreq                                 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
-                                                  src\main.o
                                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
                                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
                                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_i2c.o
@@ -2528,10 +2572,12 @@ SDIO_WriteData                                    Libraries\STM32L1xx_StdPeriph_
 SD_CtrlLines_Config                               Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 SPI1_IRQHandler                                   src\startup_stm32l1xx_hd.o
 SPI2_IRQHandler                                   src\startup_stm32l1xx_hd.o
+SPI2_ReadWrite                                    src\RFID.o
 SPI3_IRQHandler                                   src\startup_stm32l1xx_hd.o
 SPI_BiDirectionalLineConfig                       Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 SPI_CalculateCRC                                  Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 SPI_Cmd                                           Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
+                                                  src\RFID.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 SPI_DataSizeConfig                                Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 SPI_GetCRC                                        Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
@@ -2541,14 +2587,18 @@ SPI_I2S_ClearITPendingBit                         Libraries\STM32L1xx_StdPeriph_
 SPI_I2S_DMACmd                                    Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 SPI_I2S_DeInit                                    Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 SPI_I2S_GetFlagStatus                             Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
+                                                  src\RFID.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 SPI_I2S_GetITStatus                               Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 SPI_I2S_ITConfig                                  Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 SPI_I2S_ReceiveData                               Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
+                                                  src\RFID.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 SPI_I2S_SendData                                  Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
+                                                  src\RFID.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 SPI_Init                                          Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
+                                                  src\RFID.o
                                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 SPI_NSSInternalSoftwareConfig                     Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 SPI_SSOutputCmd                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
@@ -2556,14 +2606,11 @@ SPI_StructInit                                    Libraries\STM32L1xx_StdPeriph_
 SPI_TransmitCRC                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_spi.o
 STM_ADC_Config                                    Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 STM_EVAL_LEDInit                                  Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                                                  src\main.o
 STM_EVAL_LEDOff                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 STM_EVAL_LEDOn                                    Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 STM_EVAL_LEDToggle                                Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                                                  src\main.o
 STM_EVAL_PBGetState                               Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 STM_EVAL_PBInit                                   Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
-                                                  src\main.o
 STM_Get_JOYState                                  Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 STM_SPI_Init                                      Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
 STM_SPI_WriteRead                                 Utilities\STM32L152_Nucleo\stm32l1xx_nucleo.o
@@ -2583,9 +2630,11 @@ SYSCFG_RISwitchControlModeCmd                     Libraries\STM32L1xx_StdPeriph_
 SYSCFG_RITIMInputCaptureConfig                    Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
 SYSCFG_RITIMSelect                                Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
 SYSCFG_USBPuCmd                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_syscfg.o
+Send_char_uart                                    src\main.o
+Send_int_uart                                     src\main.o
+Send_string_uart                                  src\main.o
 SysTick_CLKSourceConfig                           Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
-SysTick_Handler                                   src\stm32l1xx_it.o
-                                                  src\startup_stm32l1xx_hd.o
+SysTick_Handler                                   src\startup_stm32l1xx_hd.o
 SystemCoreClock                                   src\system_stm32l1xx.o
 SystemCoreClockUpdate                             src\system_stm32l1xx.o
 SystemInit                                        src\system_stm32l1xx.o
@@ -2680,12 +2729,30 @@ TIM_TimeBaseInit                                  Libraries\STM32L1xx_StdPeriph_
 TIM_TimeBaseStructInit                            Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
 TIM_UpdateDisableConfig                           Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
 TIM_UpdateRequestConfig                           Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
-TimingDelay_Decrement                             src\main.o
-                                                  src\stm32l1xx_it.o
+TM_MFRC522_AntennaOff                             src\RFID.o
+TM_MFRC522_AntennaOn                              src\RFID.o
+TM_MFRC522_Anticoll                               src\RFID.o
+TM_MFRC522_Auth                                   src\RFID.o
+TM_MFRC522_CalculateCRC                           src\RFID.o
+TM_MFRC522_Check                                  src\RFID.o
+TM_MFRC522_ClearBitMask                           src\RFID.o
+TM_MFRC522_Compare                                src\RFID.o
+TM_MFRC522_Halt                                   src\RFID.o
+TM_MFRC522_Init                                   src\RFID.o
+TM_MFRC522_InitSPI                                src\RFID.o
+TM_MFRC522_Read                                   src\RFID.o
+TM_MFRC522_ReadRegister                           src\RFID.o
+TM_MFRC522_Request                                src\RFID.o
+TM_MFRC522_Reset                                  src\RFID.o
+TM_MFRC522_SelectTag                              src\RFID.o
+TM_MFRC522_SetBitMask                             src\RFID.o
+TM_MFRC522_ToCard                                 src\RFID.o
+TM_MFRC522_Write                                  src\RFID.o
+TM_MFRC522_WriteRegister                          src\RFID.o
 UART4_IRQHandler                                  src\startup_stm32l1xx_hd.o
 UART5_IRQHandler                                  src\startup_stm32l1xx_hd.o
 USART1_IRQHandler                                 src\startup_stm32l1xx_hd.o
-USART2_IRQHandler                                 src\startup_stm32l1xx_hd.o
+USART2_IRQHandler                                 src\main.o
 USART3_IRQHandler                                 src\startup_stm32l1xx_hd.o
 USART_ClearFlag                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_ClearITPendingBit                           Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
@@ -2695,6 +2762,7 @@ USART_Cmd                                         Libraries\STM32L1xx_StdPeriph_
 USART_DMACmd                                      Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_DeInit                                      Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_GetFlagStatus                               Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+                                                  src\main.o
 USART_GetITStatus                                 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_HalfDuplexCmd                               Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_ITConfig                                    Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
@@ -2709,6 +2777,7 @@ USART_ReceiveData                                 Libraries\STM32L1xx_StdPeriph_
 USART_ReceiverWakeUpCmd                           Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_SendBreak                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_SendData                                    Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
+                                                  src\main.o
 USART_SetAddress                                  Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_SetGuardTime                                Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
 USART_SetPrescaler                                Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
@@ -2730,6 +2799,8 @@ WWDG_IRQHandler                                   src\startup_stm32l1xx_hd.o
 WWDG_SetCounter                                   Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
 WWDG_SetPrescaler                                 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
 WWDG_SetWindowValue                               Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_wwdg.o
+__assert                                          src\main.o
+__assert_func                                     src\main.o
 __deregister_frame_info                           c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
 __dso_handle                                      c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtbegin.o
 __init_array_end                                  c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/../../../../arm-atollic-eabi/lib/armv7-m\libc_nano.a(lib_a-init.o)
@@ -2757,6 +2828,8 @@ fprintf                                           src\tiny_printf.o
 fputs                                             src\tiny_printf.o
 fwrite                                            src\tiny_printf.o
 g_pfnVectors                                      src\startup_stm32l1xx_hd.o
+getFirmwareVersion                                src\RFID.o
+initUART2                                         src\main.o
 iprintf                                           src\tiny_printf.o
 main                                              src\main.o
                                                   src\startup_stm32l1xx_hd.o
@@ -2769,3 +2842,4 @@ strlen                                            c:/program files (x86)/atollic
 ts_formatlength                                   src\tiny_printf.o
 ts_formatstring                                   src\tiny_printf.o
 ts_itoa                                           src\tiny_printf.o
+unless_loop                                       src\main.o
