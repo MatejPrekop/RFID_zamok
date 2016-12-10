@@ -11,14 +11,65 @@
 #include <stddef.h>
 #include "stm32l1xx.h"
 
-#include "RFID.h"
+
+char poleChar[10];
+
+TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
+GPIO_InitTypeDef GPIO_InitStructure;
+USART_InitTypeDef USART_InitStructure;
+EXTI_InitTypeDef  EXTI_InitStructure;
+NVIC_InitTypeDef NVIC_InitStructure;
+
+char bufferRFID[30];
+
+unsigned char MyID[5] = {0x1a, 0x18, 0x3a, 0x45, 0x7d};	//My card on my keys
+
+void unless_loop(void);
+void RCC_Configuration(void);
+
+void NVIC_Configuration(void);
+void initUART2(void);
+void Delay(uint32_t);
+int  Send_int_uart(int);
+void Send_string_uart(const char*);
+void Send_char_uart(char);
+
+void USART1_IRQHandler(void);
 
 
 
 int main(void) {
 
-	while (1) {
+	unsigned char CardID[5];
+	RCC_Configuration();
+	/**/
+	NVIC_Configuration();
+	initUART2();
+	//----RFID-----
+	TM_MFRC522_Init();
 
+	while (1) {
+		//-----------------------------RFID Analayzer------------------------------------------
+			  if (TM_MFRC522_Check(CardID) == MI_OK)
+				{
+					sprintf(bufferRFID, "[%x-%x-%x-%x-%x]", CardID[0], CardID[1], CardID[2], CardID[3], CardID[4]);
+					Send_string_uart(bufferRFID);
+					Send_string_uart("\n\r");
+					//Check if this is my card
+				  if (TM_MFRC522_Compare(CardID, MyID) == MI_OK)
+					{
+						Send_string_uart("(^_^) Perfect!\n\r");
+						//otvor zamok
+					}
+					else
+					{
+						Send_string_uart("(0_0) Bad!\n\r");
+					}
+
+				}
+				Send_string_uart("Waiting for RFID Card...!\n\r");
+
+					//Delay(10);
 
 	}
 
@@ -133,12 +184,43 @@ void Send_char_uart(char str) {
  * @param  None
  * @retval None
  */
-
+void NVIC_Configuration(void) {
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
+	NVIC_InitTypeDef NVIC_InitStructure;
+	NVIC_InitStructure.NVIC_IRQChannel = USART2_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+}
 
 void initUART2(void) {
 
 	/* Configure USART pins */
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource2, GPIO_AF_USART2);
+	GPIO_PinAFConfig(GPIOA, GPIO_PinSource3, GPIO_AF_USART2);
+
+	USART_InitStructure.USART_BaudRate = 9600;
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;
+	USART_InitStructure.USART_Parity = USART_Parity_No;
+	USART_InitStructure.USART_HardwareFlowControl =
+	USART_HardwareFlowControl_None;
+	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+	/* Enable USART2 Receive and Transmit interrupts */
+	USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);
+	//USART_ITConfig(USART2, USART_IT_TXE, ENABLE);
+	/* USART configuration */
+	USART_Init(USART2, &USART_InitStructure);
+	/* Enable USART */
+	USART_Cmd(USART2, ENABLE);
 
 }
 
@@ -148,7 +230,9 @@ void USART2_IRQHandler() {
 	}
 }
 
+void setLed(void) {
 
+}
 
 #ifdef  USE_FULL_ASSERT
 

@@ -12,6 +12,15 @@
 #include <stm32l1xx_gpio.h>
 #include <stm32l1xx_rcc.h>
 
+/* SDA => PB 12
+ * SCK => PB 13
+ * MOSI => PB 15
+ * MISO => PB14
+ * IRQ => UNUSSED
+ * GND => GND
+ * RST => +3.3V
+ * 3.3V => +3.3V
+ */
 
 //-------------------------------------------------
 void TM_MFRC522_Init(void) {
