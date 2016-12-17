@@ -9,6 +9,16 @@
 #include <stddef.h>
 #include "stm32l1xx.h"
 
+//PB3 - SPI1_SCK
+	//PB4 - SPI1_MISO UNUSSED
+	//PB5 - SPI1_MOSI SDA
+	//PB10 - CS
+	//PA9 - RESET
+	//PA8 - A0
+	//+3.3V - LED
+	//GND - GND
+	//+5V - VCC
+
 //TODO rework to STM32L mcu's
 
 void initSPI(void) {
