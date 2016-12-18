@@ -11,6 +11,10 @@
 #include <stddef.h>
 #include "stm32l1xx.h"
 
+#include "RFID.h"
+#include "spi.h"
+#include "ili9163.h"
+
 char poleChar[10];
 
 TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
