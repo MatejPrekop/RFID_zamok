@@ -416,3 +416,34 @@ void lcdPutS(const char *string, uint8_t x, uint8_t y, uint16_t fgColour, uint16
 		x += 6;
 	}
 }
+
+void welcome(void) {
+	char bufferDisplay[10];
+	lcdClearDisplay(decodeRgbValue(255, 255, 255));
+	Delay_us(100000);
+	sprintf(bufferDisplay, "Prilozte kartu");
+	lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
+			decodeRgbValue(255, 255, 255));
+	lcdFilledRectangle(52, 68, 76, 122, decodeRgbValue(255, 255, 255));
+	lcdRectangle(58, 70, 70, 100, decodeRgbValue(0, 0, 255));
+	lcdLine(54, 100, 74, 100, decodeRgbValue(0, 0, 255));
+	lcdLine(64, 120, 54, 100, decodeRgbValue(0, 0, 255));
+	lcdLine(64, 120, 74, 100, decodeRgbValue(0, 0, 255));
+}
+
+void ok(void) {
+	lcdCircle(44, 90, 10, decodeRgbValue(0, 255, 0));
+	lcdLine(64, 80, 64, 100, decodeRgbValue(0, 255, 0));
+	lcdLine(64, 90, 74, 80, decodeRgbValue(0, 255, 0));
+	lcdLine(64, 90, 74, 100, decodeRgbValue(0, 255, 0));
+}
+
+void vykricnik(void) {
+	lcdFilledRectangle(52, 68, 76, 122, decodeRgbValue(255, 255, 255));
+	lcdRectangle(58, 70, 70, 100, decodeRgbValue(255, 0, 0));
+	lcdRectangle(58, 105, 70, 110, decodeRgbValue(255, 0, 0));
+	for (int c = 0; c < 8; c++) {
+		GPIO_ToggleBits(GPIOA, GPIO_Pin_0 | GPIO_Pin_6);
+		Delay_us(500000);
+	}
+}
