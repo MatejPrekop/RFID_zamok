@@ -456,3 +456,519 @@ void TM_MFRC522_Halt(void) {
 
 	TM_MFRC522_ToCard(PCD_TRANSCEIVE, buff, 4, buff, &unLen);
 }
+
+
+void zapisanie(void) {
+	char bufferRFID[30];
+	char bufferDisplay[10];
+	unsigned char MyID[5] = { 0x1a, 0x18, 0x3a, 0x45, 0x7d };
+	unsigned char CardID[5];
+	unsigned char newCardID[5];
+	int pom = 0;
+	for (int x = 0; x <= 5; x++) {
+		if (pom == 0) {
+			if (TM_MFRC522_Check(CardID) == MI_OK) {
+
+				sprintf(bufferRFID, "[%x-%x-%x-%x-%x]", CardID[0], CardID[1],
+						CardID[2], CardID[3], CardID[4]);
+
+				if (karta_v_zozname(CardID) == MI_OK) {
+
+					Send_string_uart("Prilozte novu kartu\n\r");
+
+					lcdClearDisplay(decodeRgbValue(255, 255, 255));
+					sprintf(bufferDisplay, "Prilozte novu kartu");
+					lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
+							decodeRgbValue(255, 255, 255));
+
+					Delay(3);
+
+					for (int i = 0; i <= 10; i++) {
+						if (TM_MFRC522_Check(newCardID) == MI_OK) {
+							//if (karta_v_zozname(CardID) != MI_OK) {
+							if (karta_v_zozname(newCardID) == MI_ERR) {
+								pridaj_kartu(newCardID);
+								Send_string_uart("Uspesne zapisanie\n\r");
+								lcdClearDisplay(decodeRgbValue(255, 255, 255));
+								sprintf(bufferDisplay, "Uspesne zapisanie");
+								//odober_kartu(newCardID);
+								lcdPutS(bufferDisplay, 10, 50,
+										decodeRgbValue(0, 0, 255),
+										decodeRgbValue(255, 255, 255));
+
+								//vykreslenie OK
+								ok();
+								//blikanie zltej LED
+								for (int c = 0; c < 6; c++) {
+									GPIO_ToggleBits(GPIOA, GPIO_Pin_4);
+									Delay_us(200000);
+								}
+								Delay(1);
+								pom = 1;
+								//i = 10;
+								//Delay(3);
+								welcome();
+								break;
+							} else {
+								lcdClearDisplay(decodeRgbValue(255, 255, 255));
+								sprintf(bufferDisplay,
+										"Karta uz je v      zozname");
+								lcdPutS(bufferDisplay, 10, 50,
+										decodeRgbValue(255, 0, 0),
+										decodeRgbValue(255, 255, 255));
+
+								//vykreslenie Vykricnika
+								vykricnik();
+								welcome();
+								goto koniec;
+							}
+						} else {
+							Delay(1);
+						}
+						if (i == 10) {
+							x = 5;
+							welcome();
+						}
+					}
+
+				} else {
+					Send_string_uart("Neopravnena karta\n\r");
+					x = 5;
+					lcdClearDisplay(decodeRgbValue(255, 255, 255));
+					sprintf(bufferDisplay, "Neopravnena karta");
+					lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(255, 0, 0),
+							decodeRgbValue(255, 255, 255));
+
+					//vykreslenie Vykricnika
+					vykricnik();
+					welcome();
+				}
+
+			} else {
+				Send_string_uart("Priloz opravnenu kartu\n\r");
+				lcdClearDisplay(decodeRgbValue(255, 255, 255));
+				sprintf(bufferDisplay, "Priloz opravnenu   kartu");
+				lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
+						decodeRgbValue(255, 255, 255));
+				Delay(1);
+				if (x == 5) {
+					welcome();
+				}
+			}
+			//Delay(1);
+		} else {
+			//welcome();
+			break;
+		}
+	}
+	koniec:;
+}
+
+void vymazanie(void) {
+	char bufferRFID[30];
+	char bufferDisplay[10];
+	unsigned char MyID[5] = { 0x1a, 0x18, 0x3a, 0x45, 0x7d };
+	unsigned char CardID[5];
+	unsigned char newCardID[5];
+	int pom = 0;
+	int pom2=0;
+	for (int x = 0; x <= 5; x++) {
+		if (pom == 0) {
+			if (TM_MFRC522_Check(CardID) == MI_OK) {
+
+				sprintf(bufferRFID, "[%x-%x-%x-%x-%x]", CardID[0], CardID[1],
+						CardID[2], CardID[3], CardID[4]);
+
+				if (karta_v_zozname(CardID) == MI_OK) {
+
+					Send_string_uart("Prilozte kartu na odstranenie\n\r");
+
+					lcdClearDisplay(decodeRgbValue(255, 255, 255));
+					sprintf(bufferDisplay, "Prilozte kartu na  odstranenie");
+					lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
+							decodeRgbValue(255, 255, 255));
+
+					Delay(3);
+
+					for (int i = 0; i <= 10; i++) {
+						if (TM_MFRC522_Check(newCardID) == MI_OK) {
+							for(int j=0;j<5;j++)
+							{
+								if(CardID[j]==newCardID[j]) {
+									pom2++;
+								}
+							}
+
+							if (pom2!=5) {
+								odober_kartu(newCardID);
+								Send_string_uart("Uspesne vymazane\n\r");
+								lcdClearDisplay(decodeRgbValue(255, 255, 255));
+								sprintf(bufferDisplay, "Uspesne vymazane");
+								//odober_kartu(newCardID);
+								lcdPutS(bufferDisplay, 10, 50,
+										decodeRgbValue(0, 0, 255),
+										decodeRgbValue(255, 255, 255));
+
+								//vykreslenie OK
+								ok();
+								//blikanie zltej LED
+								for (int c = 0; c < 6; c++) {
+									GPIO_ToggleBits(GPIOA, GPIO_Pin_4);
+									Delay_us(200000);
+								}
+								Delay(1);
+								pom = 1;
+								//i = 10;
+								//Delay(3);
+								welcome();
+								break;
+							} else {
+								lcdClearDisplay(decodeRgbValue(255, 255, 255));
+								sprintf(bufferDisplay,
+										"Nemozno vymazat tu istu kartu");
+								lcdPutS(bufferDisplay, 10, 50,
+										decodeRgbValue(255, 0, 0),
+										decodeRgbValue(255, 255, 255));
+
+								//vykreslenie Vykricnika
+								vykricnik();
+								welcome();
+								goto koniec;
+							}
+
+						} else {
+							Delay(1);
+						}
+						if (i == 10) {
+							x = 5;
+							welcome();
+						}
+
+					}
+
+				} else {
+					Send_string_uart("Neopravnena karta\n\r");
+					x = 5;
+					lcdClearDisplay(decodeRgbValue(255, 255, 255));
+					sprintf(bufferDisplay, "Neopravnena karta");
+					lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(255, 0, 0),
+							decodeRgbValue(255, 255, 255));
+
+					//vykreslenie Vykricnika
+					vykricnik();
+					welcome();
+				}
+
+			} else {
+				Send_string_uart("Priloz opravnenu kartu\n\r");
+				lcdClearDisplay(decodeRgbValue(255, 255, 255));
+				sprintf(bufferDisplay, "Priloz opravnenu   kartu");
+				lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
+						decodeRgbValue(255, 255, 255));
+				Delay(1);
+				if (x == 5) {
+					welcome();
+				}
+			}
+			//Delay(1);
+		} else {
+			//welcome();
+			break;
+		}
+	}
+	koniec:;
+}
+
+//funkcia na prejdenie zoznamu zapisanych kariet na flash pameti na adresach
+//0x08080000 az 0x08080100
+TM_MFRC522_Status_t karta_v_zozname(uint8_t* CardID) {
+	uint8_t i;
+	uint8_t j;
+	uint8_t pom;
+	uint32_t *addres;
+	uint8_t CompareID;
+	for (j = 0; j < 8; j++) {
+		pom = 0;
+		addres = (uint32_t *) 0x08080000 + (0x05) + (j * 0x8);
+		CompareID = *addres;
+		if (1 == CompareID) {
+			for (i = 0; i < 5; i++) {
+				addres = (uint32_t *) 0x08080000 + 0x1 * i + j * 0x8;
+				CompareID = *addres;
+				if (CardID[i] == CompareID) {
+					pom++;
+				}
+
+			}
+			if (pom == 5) {
+				return MI_OK;
+			}
+		}
+	}
+	return MI_ERR;
+}
+
+//funkcia na zapis do zoznamu kariet na adresach
+//0x08080000 az 0x08080100
+
+TM_MFRC522_Status_t pridaj_kartu(uint8_t* CardID) {
+	uint8_t i;
+	uint8_t j;
+	uint32_t *addres;
+	uint32_t PutInIDAddress;
+	uint8_t PutInID;
+	for (j = 0; j < 8; j++) {
+		addres = (uint32_t *) 0x08080000 + (0x05) + (j * 0x8);
+		PutInID = *addres;
+		PutInIDAddress = (uint32_t) (addres);
+		if (0 == PutInID) {
+			FLASH_Unlock();
+			DATA_EEPROM_ProgramByte(PutInIDAddress, 1);
+			for (i = 0; i < 5; i++) {
+				addres = (uint32_t *) 0x08080000 + 0x1 * i + j * 0x8;
+				PutInIDAddress = (uint32_t) (addres);
+				DATA_EEPROM_ProgramByte(PutInIDAddress, CardID[i]);
+			}
+			FLASH_Lock();
+			return MI_OK;
+		}
+	}
+	return MI_ERR;
+}
+
+TM_MFRC522_Status_t odober_kartu(uint8_t* CardID) {
+	uint8_t i;
+	uint8_t k;
+	uint8_t j;
+	uint8_t pom;
+	uint32_t *addres;
+	uint8_t RemoveID;
+	uint32_t RemoveIDAddress;
+	for (j = 0; j < 8; j++) {
+		pom = 0;
+		addres = (uint32_t *) 0x08080000 + (0x05) + (j * 0x8);
+		RemoveID = *addres;
+		if (1 == RemoveID) {
+			for (i = 0; i < 5; i++) {
+				addres = (uint32_t *) 0x08080000 + 0x1 * i + j * 0x8;
+				RemoveID = *addres;
+				if (CardID[i] == RemoveID) {
+					pom++;
+				}
+
+			}
+			if (pom == 5) {
+				FLASH_Unlock();
+				for (k = 0; k < 8; k++) {
+					addres = (uint32_t *) 0x08080000 + 0x1 * k + j * 0x8;
+					RemoveIDAddress = (uint32_t) (addres);
+
+					DATA_EEPROM_EraseByte(RemoveIDAddress);
+				}
+				FLASH_Lock();
+				return MI_OK;
+			}
+		}
+	}
+	return MI_ERR;
+}
+
+/*
+// funkcia na zapis poslednych 5 pristupov na adresach
+//0x08080500 az 0x080805A0
+void zapis_pristupu(uint8_t* CardID) {
+	uint8_t j;
+	uint8_t k;
+	uint8_t i;
+	uint32_t TempIDAddres;
+	uint8_t TempID;
+	uint32_t *addres;
+	FLASH_Unlock();
+	for (i = 4; i > 0; i--) {
+		for (j = 0; j < 5; j++) {
+			addres = (uint32_t *) (0x08080500 + (0x4 * j)
+					+ ((i - 1) * 0x8 * 0x4));
+			TempID = *addres;
+			addres = (uint32_t *) (0x08080500 + (0x4 * j) + ((i) * 0x8 * 0x4));
+			TempIDAddres = (uint32_t) (addres);
+			DATA_EEPROM_ProgramByte(TempIDAddres, TempID);
+		}
+	}
+	for (k = 0; k < 5; k++) {
+		addres = (uint32_t *) 0x08080500 + 0x1 * k;
+		TempIDAddres = (uint32_t) (addres);
+		DATA_EEPROM_ProgramByte(TempIDAddres, CardID[k]);
+	}
+	FLASH_Lock();
+}
+
+void vypis_pristupov(void) {
+	uint8_t i;
+	uint8_t j;
+	uint8_t PrintID[5];
+	uint32_t *addres;
+	char buffer[30];
+	lcdClearDisplay(decodeRgbValue(255, 255, 255));
+	sprintf(buffer, "Zoznam poslednych  pristupov");
+	lcdPutS(buffer, 10, 40, decodeRgbValue(0, 0, 255),
+			decodeRgbValue(255, 255, 255));
+	for (i = 0; i < 5; i++) {
+		for (j = 0; j < 5; j++) {
+			addres = (uint32_t *) 0x08080500 + 0x1 * j + i * 0x8;
+			PrintID[j] = *addres;
+		}
+		sprintf(buffer, "%x-%x-%x-%x-%x", PrintID[0], PrintID[1], PrintID[2],
+				PrintID[3], PrintID[4]);
+		lcdPutS(buffer, 10, 58 + 9 * i, decodeRgbValue(0, 0, 255),
+				decodeRgbValue(255, 255, 255));
+
+	}
+	while (((GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9)) + 1) % 2 != 0) {
+		Delay_us(100);
+	}
+
+	welcome();
+}*/
+
+///////////////////////////////////////////////////////////
+// funkcia na zapis poslednych 5 pristupov na adresach
+//0x08080500 az 0x080805A0
+void zapis_pristupu(uint8_t* CardID) {
+	uint8_t j;
+	uint8_t k;
+	uint8_t i;
+	uint32_t TempIDAddres;
+	uint8_t TempID;
+	uint32_t *addres;
+	FLASH_Unlock();
+	for (i = 24; i > 0; i--) {
+		for (j = 0; j < 5; j++) {
+			addres = (uint32_t *) (0x08080500 + (0x4 * j)
+					+ ((i - 1) * 0x8 * 0x4));
+			TempID = *addres;
+			addres = (uint32_t *) (0x08080500 + (0x4 * j) + ((i) * 0x8 * 0x4));
+			TempIDAddres = (uint32_t) (addres);
+			DATA_EEPROM_ProgramByte(TempIDAddres, TempID);
+		}
+	}
+	for (k = 0; k < 5; k++) {
+		addres = (uint32_t *) 0x08080500 + 0x1 * k;
+		TempIDAddres = (uint32_t) (addres);
+		DATA_EEPROM_ProgramByte(TempIDAddres, CardID[k]);
+	}
+	FLASH_Lock();
+}
+
+void vypis_pristupov(void) {
+
+	int pom;
+	uint8_t i;
+	uint8_t j;
+	uint8_t PrintID[5];
+	uint32_t *addres;
+	char buffer[30];
+
+	zaciatok:	pom=0;
+	lcdClearDisplay(decodeRgbValue(255, 255, 255));
+	sprintf(buffer, "Zoznam poslednych  pristupov %d /5",pom+1);
+	lcdPutS(buffer, 10, 40, decodeRgbValue(0, 0, 255),
+			decodeRgbValue(255, 255, 255));
+	for (i = 0; i < 5; i++) {
+		for (j = 0; j < 5; j++) {
+			addres = (uint32_t *) 0x08080500 + 0x1 * j + i * 0x8;
+			PrintID[j] = *addres;
+		}
+		sprintf(buffer, "%x-%x-%x-%x-%x", PrintID[0], PrintID[1], PrintID[2],
+				PrintID[3], PrintID[4]);
+		lcdPutS(buffer, 10, 67 + 9 * i, decodeRgbValue(0, 0, 255),
+				decodeRgbValue(255, 255, 255));
+
+	}
+	Delay_us(1500000);
+	while (1) {
+		if (((GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_8)) + 1) % 2== 0) {
+			pom++;
+			if(pom==5)
+						{
+
+							goto zaciatok;
+						}
+			lcdClearDisplay(decodeRgbValue(255, 255, 255));
+				sprintf(buffer, "Zoznam poslednych  pristupov %d/5",pom+1);
+				lcdPutS(buffer, 10, 40, decodeRgbValue(0, 0, 255),
+						decodeRgbValue(255, 255, 255));
+			for (i = 0; i < 5; i++) {
+				for (j = 0; j < 5; j++) {
+					addres = (uint32_t *) 0x08080500 + 0x1 * j + i * 0x8
+							+ (0x8 * 0x5 * pom);
+					PrintID[j] = *addres;
+				}
+				sprintf(buffer, "%x-%x-%x-%x-%x", PrintID[0], PrintID[1],
+						PrintID[2], PrintID[3], PrintID[4]);
+				lcdPutS(buffer, 10, 67 + 9 * i, decodeRgbValue(0, 0, 255),
+						decodeRgbValue(255, 255, 255));
+
+			}
+			Delay(1);
+
+			}
+			//((GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9)) + 1) % 2 != 0
+		if(((GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9)) + 1) % 2 == 0)
+		{
+			goto koniec;
+		}
+		}
+koniec:
+	welcome();
+}
+
+void kontrola_zoznamu(void)
+ {
+	int pom = 0;
+	uint8_t TempID;
+	uint32_t *addres;
+	unsigned char CardID[5];
+	char bufferDisplay[76];
+	for (uint8_t a = 0; a < 8; a++) {
+		addres = (uint32_t *) (0x08080000 + (0x4 * a) + (0x5 * 0x4));
+		TempID = *addres;
+		//addres = (uint32_t *) 0x08080000 + (0x05) + (a * 0x8);
+		//TempID = *addres;
+		if (TempID == 1) {
+			pom++;
+		}
+
+	}
+	if (pom == 0) {
+		GPIO_SetBits(GPIOA, GPIO_Pin_4);
+		sprintf(bufferDisplay,"Ziadna karta v     zozname prilozte   kartu na pociatocnezapisanie");
+		lcdClearDisplay(decodeRgbValue(255, 255, 255));
+		lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
+				decodeRgbValue(255, 255, 255));
+	}
+	while (pom == 0) {
+
+		if (TM_MFRC522_Check(CardID) == MI_OK) {
+			pridaj_kartu(CardID);
+			lcdClearDisplay(decodeRgbValue(255, 255, 255));
+			sprintf(bufferDisplay, "Uspesne zapisanie");
+			//odober_kartu(newCardID);
+			lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
+					decodeRgbValue(255, 255, 255));
+
+			//vykreslenie OK
+			ok();
+			for (int c = 0; c < 6; c++) {
+				GPIO_ToggleBits(GPIOA, GPIO_Pin_4);
+				Delay_us(200000);
+			}
+			Delay(1);
+
+			pom++;
+		} else {
+			Delay_us(100000);
+		}
+	}
+	GPIO_ResetBits(GPIOA, GPIO_Pin_4);
+}
+

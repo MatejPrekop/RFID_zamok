@@ -42,81 +42,107 @@ void Send_char_uart(char);
 void USART1_IRQHandler(void);
 
 int main(void) {
-
 	setLed();
-		unsigned char CardID[5];
-		RCC_Configuration();
-		/**/
-		NVIC_Configuration();
-		initUART2();
-		//----RFID-----
-		TM_MFRC522_Init();
-		// pre LCD displej
-		initSPI();
-		initCD_Pin();
-		initCS_Pin();
-		initRES_Pin();
-		lcdInitialise(LCD_ORIENTATION0);
-		lcdClearDisplay(decodeRgbValue(255, 255, 255));
+	unsigned char CardID[5];
+	RCC_Configuration();
+	/**/
+	NVIC_Configuration();
+	initUART2();
+	//----RFID-----
+	TM_MFRC522_Init();
+	// pre LCD displej
+	initSPI();
+	initCD_Pin();
+	initCS_Pin();
+	initRES_Pin();
+	lcdInitialise(LCD_ORIENTATION0);
+	lcdClearDisplay(decodeRgbValue(255, 255, 255));
 
-		uint8_t modreTlac = 0;
-		uint8_t cerveneTlac = 0;
+	uint8_t modreTlac = 0;
+	uint8_t cerveneTlac = 0;
 
-		kontrola_zoznamu();
+	kontrola_zoznamu();
 
-		int pom = 0;
-		welcome();
-		GPIO_SetBits(GPIOA, GPIO_Pin_0);
+	int pom = 0;
+	welcome();
+	GPIO_SetBits(GPIOA, GPIO_Pin_0);
+
 
 	while (1) {
+
+		modreTlac = ((GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_8)) + 1) % 2;
+		if (modreTlac == 0) {
+			GPIO_SetBits(GPIOA, GPIO_Pin_4);
+			pom=0;
+			while (((GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_8)) + 1) % 2 == 0 && (pom<32))  {
+				pom++;
+				Delay_us(100000);
+			}
+			if (pom > 30) {
+				vypis_pristupov();
+			} else {
+
+				zapisanie();
+
+			}
+			GPIO_ResetBits(GPIOA, GPIO_Pin_4);
+		}
+
+		cerveneTlac = ((GPIO_ReadInputDataBit(GPIOB, GPIO_Pin_9)) + 1) % 2;
+		if (cerveneTlac == 0) {
+			GPIO_SetBits(GPIOA, GPIO_Pin_4);
+			vymazanie();
+			//vypis_pristupov();
+			GPIO_ResetBits(GPIOA, GPIO_Pin_4);
+		}
+
 		//-----------------------------RFID Analayzer------------------------------------------
-				if (TM_MFRC522_Check(CardID) == MI_OK) {
-					zapis_pristupu(CardID);
-					sprintf(bufferRFID, "[%x-%x-%x-%x-%x]", CardID[0], CardID[1],
-							CardID[2], CardID[3], CardID[4]);
-					Send_string_uart(bufferRFID);
-					Send_string_uart("\n\r");
-					//Check if this is my card
-					if (karta_v_zozname(CardID) == MI_OK)
-					//if (TM_MFRC522_Compare(CardID, MyID) == MI_OK)
-							{
-						Send_string_uart("Pristup povoleny\n\r");
-						sprintf(bufferDisplay, "Pristup povoleny");
-						lcdClearDisplay(decodeRgbValue(255, 255, 255));
-						lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
-								decodeRgbValue(255, 255, 255));
-						//GPIO_SetBits(GPIOB, GPIO_Pin_4);
-						//vykreslenie OK
-						ok();
-						GPIO_ResetBits(GPIOA, GPIO_Pin_0);
-						//otvor zamok
-						GPIO_SetBits(GPIOA, GPIO_Pin_1 | GPIO_Pin_6);
-						Delay(5); //cas pre otvoreny zamok [s]
-						GPIO_ResetBits(GPIOA, GPIO_Pin_1 | GPIO_Pin_6);
-						Delay(1);
-						GPIO_SetBits(GPIOA, GPIO_Pin_0);
-						welcome();
-
-					} else {
-						Send_string_uart("Pristup zamietnuty\n\r");
-						sprintf(bufferDisplay, "Pristup zamietnuty");
-						lcdClearDisplay(decodeRgbValue(255, 255, 255));
-						lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(255, 0, 0),
-								decodeRgbValue(255, 255, 255));
-
-						//vykreslenie Vykricnika a spustenie buzzera
-						vykricnik();
-						welcome();
-					}
-
-				}
-				Send_string_uart("Waiting for RFID Card...!\n\r");
-
+		if (TM_MFRC522_Check(CardID) == MI_OK) {
+			zapis_pristupu(CardID);
+			sprintf(bufferRFID, "[%x-%x-%x-%x-%x]", CardID[0], CardID[1],
+					CardID[2], CardID[3], CardID[4]);
+			Send_string_uart(bufferRFID);
+			Send_string_uart("\n\r");
+			//Check if this is my card
+			if (karta_v_zozname(CardID) == MI_OK)
+			//if (TM_MFRC522_Compare(CardID, MyID) == MI_OK)
+					{
+				Send_string_uart("Pristup povoleny\n\r");
+				sprintf(bufferDisplay, "Pristup povoleny");
+				lcdClearDisplay(decodeRgbValue(255, 255, 255));
+				lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(0, 0, 255),
+						decodeRgbValue(255, 255, 255));
+				//GPIO_SetBits(GPIOB, GPIO_Pin_4);
+				//vykreslenie OK
+				ok();
+				GPIO_ResetBits(GPIOA, GPIO_Pin_0);
+				//otvor zamok
+				GPIO_SetBits(GPIOA, GPIO_Pin_1 | GPIO_Pin_6);
+				Delay(5); //cas pre otvoreny zamok [s]
+				GPIO_ResetBits(GPIOA, GPIO_Pin_1 | GPIO_Pin_6);
 				Delay(1);
+				GPIO_SetBits(GPIOA, GPIO_Pin_0);
+				welcome();
+
+			} else {
+				Send_string_uart("Pristup zamietnuty\n\r");
+				sprintf(bufferDisplay, "Pristup zamietnuty");
+				lcdClearDisplay(decodeRgbValue(255, 255, 255));
+				lcdPutS(bufferDisplay, 10, 50, decodeRgbValue(255, 0, 0),
+						decodeRgbValue(255, 255, 255));
+
+				//vykreslenie Vykricnika a spustenie buzzera
+				vykricnik();
+				welcome();
 			}
 
-		} /*--------------End Main------------------*/
+		}
+		Send_string_uart("Waiting for RFID Card...!\n\r");
 
+		Delay(1);
+	}
+
+} /*--------------End Main------------------*/
 /*
  *************************************************************************************************************************************
  *							  								LOCAL FUNCTIONS															*
