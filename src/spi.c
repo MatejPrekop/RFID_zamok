@@ -1,23 +1,6 @@
-/*
- * spi.c
- *
- *  Created on: 17. 12. 2016
- *      Author: Mallto
- */
-
 #include "spi.h"
 #include <stddef.h>
 #include "stm32l1xx.h"
-
-//PB3 - SPI1_SCK
-	//PB4 - SPI1_MISO UNUSSED
-	//PB5 - SPI1_MOSI SDA
-	//PB10 - CS
-	//PA9 - RESET
-	//PA8 - A0
-	//+3.3V - LED
-	//GND - GND
-	//+5V - VCC
 
 //TODO rework to STM32L mcu's
 
@@ -32,6 +15,15 @@ void initSPI(void) {
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 
+	//PB3 - SPI1_SCK
+	//PB4 - SPI1_MISO UNUSSED
+	//PB5 - SPI1_MOSI SDA
+	//PB10 - CS
+	//PA9 - RESET
+	//PA8 - A0
+	//+3.3V - LED
+	//GND - GND
+	//+5V - VCC
 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_5;
 	GPIO_Init(GPIOB, &GPIO_InitStructure);
@@ -132,6 +124,5 @@ void device_Select(void) {
 void device_Unselect(void) {
 	GPIOB->BSRRL = GPIO_Pin_15;
 }
-
 
 

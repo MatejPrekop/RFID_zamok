@@ -1,13 +1,3 @@
-/**
- ******************************************************************************
- * @file    main.c
- * @author  Prekop, Komorowski, Joštiak, Motyèáková
- * @version V1.0.0
- * @date    3.12.2016
- * @brief   Main program body
- ******************************************************************************
- **/
-
 #include <stddef.h>
 #include "stm32l1xx.h"
 

@@ -1,12 +1,23 @@
-/*
- * RFID.c
- *
- *  Created on: 7. 12. 2016
- *      Author: Mallto
+/**	
+ * |----------------------------------------------------------------------
+ * | Edited by PhanDAT 23/09/2015
+ * | Copyright (C) Tilen Majerle, 2014
+ * | 
+ * | This program is free software: you can redistribute it and/or modify
+ * | it under the terms of the GNU General Public License as published by
+ * | the Free Software Foundation, either version 3 of the License, or
+ * | any later version.
+ * |  
+ * | This program is distributed in the hope that it will be useful,
+ * | but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * | GNU General Public License for more details.
+ * | 
+ * | You should have received a copy of the GNU General Public License
+ * | along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * |----------------------------------------------------------------------
  */
-
-
-#include "RFID.h"
+#include "RFID.h" 
 #include <stdio.h>
 //#include "systick.h"
 #include <stm32l1xx_spi.h>
@@ -39,7 +50,7 @@ void TM_MFRC522_Init(void) {
 	TM_MFRC522_WriteRegister(MFRC522_REG_T_RELOAD_H, 0);
 
 	/* 48dB gain */
-	//TM_MFRC522_WriteRegister(MFRC522_REG_RF_CFG, 0x70);
+	//TM_MFRC522_WriteRegister(MFRC522_REG_RF_CFG, 0x70); 
 	TM_MFRC522_WriteRegister(MFRC522_REG_TX_AUTO, 0x40);
 	TM_MFRC522_WriteRegister(MFRC522_REG_MODE, 0x3D);
 
@@ -53,7 +64,7 @@ void TM_MFRC522_InitSPI(void) {
 
 	/* Enable SPI2 and GPIOB clocks */
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2, ENABLE);
-	//
+	//  
 	//CS  ---- Output, duoc dieu khien khi read/write
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
@@ -85,7 +96,7 @@ void TM_MFRC522_InitSPI(void) {
 	SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;
 	SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;
 	SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
-	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8; // 72Mhz / 8 = 9Mhz
+	SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8; // 72Mhz / 8 = 9Mhz  
 	SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
 	SPI_InitStructure.SPI_CRCPolynomial = 7;
 	SPI_Init(SPI2, &SPI_InitStructure);
@@ -119,7 +130,7 @@ void TM_MFRC522_WriteRegister(uint8_t addr, uint8_t val) {
 	//Send address
 	Delay_us(10);
 	status = SPI2_ReadWrite((addr << 1) & 0x7E);
-	//Send data
+	//Send data	
 	Delay_us(10);
 	status = SPI2_ReadWrite(val);
 	//CS high
@@ -197,7 +208,7 @@ TM_MFRC522_Status_t TM_MFRC522_Check(uint8_t* id) {
 		//Anti-collision, return card serial number 4 bytes
 		status = TM_MFRC522_Anticoll(id);
 	}
-	TM_MFRC522_Halt();			//Command card into hibernation
+	TM_MFRC522_Halt();			//Command card into hibernation 
 
 	return status;
 }
@@ -332,7 +343,7 @@ void TM_MFRC522_CalculateCRC(uint8_t* pIndata, uint8_t len, uint8_t* pOutData) {
 	TM_MFRC522_SetBitMask(MFRC522_REG_FIFO_LEVEL, 0x80);//Clear the FIFO pointer
 	//Write_MFRC522(CommandReg, PCD_IDLE);
 
-	//Writing data to the FIFO
+	//Writing data to the FIFO	
 	for (i = 0; i < len; i++) {
 		TM_MFRC522_WriteRegister(MFRC522_REG_FIFO_DATA, *(pIndata + i));
 	}
@@ -700,6 +711,99 @@ void vymazanie(void) {
 	koniec: ;
 }
 
+//funkcia na prejdenie zoznamu zapisanych kariet na flash pameti na adresach
+//0x08080000 az 0x08080100
+TM_MFRC522_Status_t karta_v_zozname(uint8_t* CardID) {
+	uint8_t i;
+	uint8_t j;
+	uint8_t pom;
+	uint32_t *addres;
+	uint8_t CompareID;
+	for (j = 0; j < 8; j++) {
+		pom = 0;
+		addres = (uint32_t *) 0x08080000 + (0x05) + (j * 0x8);
+		CompareID = *addres;
+		if (1 == CompareID) {
+			for (i = 0; i < 5; i++) {
+				addres = (uint32_t *) 0x08080000 + 0x1 * i + j * 0x8;
+				CompareID = *addres;
+				if (CardID[i] == CompareID) {
+					pom++;
+				}
+
+			}
+			if (pom == 5) {
+				return MI_OK;
+			}
+		}
+	}
+	return MI_ERR;
+}
+
+//funkcia na zapis do zoznamu kariet na adresach
+//0x08080000 az 0x08080100
+
+TM_MFRC522_Status_t pridaj_kartu(uint8_t* CardID) {
+	uint8_t i;
+	uint8_t j;
+	uint32_t *addres;
+	uint32_t PutInIDAddress;
+	uint8_t PutInID;
+	for (j = 0; j < 8; j++) {
+		addres = (uint32_t *) 0x08080000 + (0x05) + (j * 0x8);
+		PutInID = *addres;
+		PutInIDAddress = (uint32_t) (addres);
+		if (0 == PutInID) {
+			FLASH_Unlock();
+			DATA_EEPROM_ProgramByte(PutInIDAddress, 1);
+			for (i = 0; i < 5; i++) {
+				addres = (uint32_t *) 0x08080000 + 0x1 * i + j * 0x8;
+				PutInIDAddress = (uint32_t) (addres);
+				DATA_EEPROM_ProgramByte(PutInIDAddress, CardID[i]);
+			}
+			FLASH_Lock();
+			return MI_OK;
+		}
+	}
+	return MI_ERR;
+}
+
+TM_MFRC522_Status_t odober_kartu(uint8_t* CardID) {
+	uint8_t i;
+	uint8_t k;
+	uint8_t j;
+	uint8_t pom;
+	uint32_t *addres;
+	uint8_t RemoveID;
+	uint32_t RemoveIDAddress;
+	for (j = 0; j < 8; j++) {
+		pom = 0;
+		addres = (uint32_t *) 0x08080000 + (0x05) + (j * 0x8);
+		RemoveID = *addres;
+		if (1 == RemoveID) {
+			for (i = 0; i < 5; i++) {
+				addres = (uint32_t *) 0x08080000 + 0x1 * i + j * 0x8;
+				RemoveID = *addres;
+				if (CardID[i] == RemoveID) {
+					pom++;
+				}
+
+			}
+			if (pom == 5) {
+				FLASH_Unlock();
+				for (k = 0; k < 8; k++) {
+					addres = (uint32_t *) 0x08080000 + 0x1 * k + j * 0x8;
+					RemoveIDAddress = (uint32_t) (addres);
+
+					DATA_EEPROM_EraseByte(RemoveIDAddress);
+				}
+				FLASH_Lock();
+				return MI_OK;
+			}
+		}
+	}
+	return MI_ERR;
+}
 
 /*
  // funkcia na zapis poslednych 5 pristupov na adresach

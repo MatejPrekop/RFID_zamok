@@ -1,16 +1,72 @@
-/*
- * RFID.h
+/**
+ * Mifare MFRC522 RFID Card reader
+ * It works on 13.56 MHz.
  *
- *  Created on: 7. 12. 2016
- *      Author: Mallto
+ * This library uses SPI for driving MFRC255 chip.
+ *
+ *	@author 	Tilen Majerle
+ *	@email		tilen@majerle.eu
+ *	@website	http://stm32f4-discovery.com
+ *	@link		http://stm32f4-discovery.com/2014/07/library-23-read-rfid-tag-mfrc522-stm32f4xx-devices/
+ *	@version 	v1.0
+ *	@ide		Keil uVision
+ *	@license	GNU GPL v3
+ *	
+ * |----------------------------------------------------------------------
+ * | Copyright (C) Tilen Majerle, 2014
+ * | 
+ * | This program is free software: you can redistribute it and/or modify
+ * | it under the terms of the GNU General Public License as published by
+ * | the Free Software Foundation, either version 3 of the License, or
+ * | any later version.
+ * |  
+ * | This program is distributed in the hope that it will be useful,
+ * | but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * | MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * | GNU General Public License for more details.
+ * | 
+ * | You should have received a copy of the GNU General Public License
+ * | along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * |----------------------------------------------------------------------
+ * 	
+ * MF RC522 Default pinout
+ * 
+ * 		MFRC522		STM32F4XX	DESCRIPTION
+ *		CS (SDA)	PB12			Chip select for SPI
+ *		SCK			  PB13			Serial Clock for SPI
+ *		MISO		  PB14			Master In Slave Out for SPI
+ *		MOSI		  PB15			Master Out Slave In for SPI
+ *		GND		  	GND			  Ground
+ *		VCC		  	3.3V		  3.3V power
+ *		RST		  	3.3V		  Reset pin
+ *		
+ * You can change your pinout in your defines.h file: 
  */
-
+#ifndef TM_MFRC522_H
+#define TM_MFRC522_H 100
+/**
+ * Library dependencies
+ * - STM32F4xx
+ * - STM32F4xx RCC
+ * - STM32F4xx GPIO
+ * - TM SPI
+ * - defines.h
+ */
+/**
+ * Includes
+ */
 #include "stm32l1xx.h"
 
-#ifndef RFID_H_
-#define RFID_H_
 
-#define MFRC522_SPI						  SPI2
+
+/**
+ * Pinout
+ *
+ * Can be overwritten in defines.h file
+ */
+/* Default SPI used */
+//#ifndef MFRC522_SPI
+#define MFRC522_SPI						  SPI2 
 //#endif
 
 /* Default CS pin used */
@@ -20,13 +76,13 @@
 #define MFRC522_CS_PIN					GPIO_Pin_12
 #define MFRC522_CS_LOW					GPIO_ResetBits(GPIOB, GPIO_Pin_12)//GPIOB->BRR = GPIO_Pin_12;
 #define MFRC522_CS_HIGH					GPIO_SetBits(GPIOB, GPIO_Pin_12) //GPIOB->BSRR = GPIO_Pin_12;
-//
+// 
 #define GPIO_NRSTPD							GPIOB
 #define GPIO_Pin_NRSTPD					GPIO_Pin_8
 #define NRSTPD_L()  						GPIO_ResetBits(GPIOB, GPIO_Pin_NRSTPD)
 #define NRSTPD_H()  						GPIO_SetBits(GPIOB, GPIO_Pin_NRSTPD)
 //#endif
-
+ 
 
 // // MF522 MFRC522 error codes.
 // #define     MI_OK                 0         // Everything A-OK.
@@ -45,7 +101,7 @@ typedef enum {
 } TM_MFRC522_Status_t;
 
 
-
+ 
 
 /* MFRC522 Commands */
 #define PCD_IDLE						0x00   //NO action; Cancel the current command
@@ -73,15 +129,15 @@ typedef enum {
 
 /* MFRC522 Registers */
 //Page 0: Command and Status
-#define MFRC522_REG_RESERVED00			0x00
-#define MFRC522_REG_COMMAND				0x01
-#define MFRC522_REG_COMM_IE_N			0x02
-#define MFRC522_REG_DIV1_EN				0x03
-#define MFRC522_REG_COMM_IRQ			0x04
+#define MFRC522_REG_RESERVED00			0x00    
+#define MFRC522_REG_COMMAND				0x01    
+#define MFRC522_REG_COMM_IE_N			0x02    
+#define MFRC522_REG_DIV1_EN				0x03    
+#define MFRC522_REG_COMM_IRQ			0x04    
 #define MFRC522_REG_DIV_IRQ				0x05
-#define MFRC522_REG_ERROR				0x06
-#define MFRC522_REG_STATUS1				0x07
-#define MFRC522_REG_STATUS2				0x08
+#define MFRC522_REG_ERROR				0x06    
+#define MFRC522_REG_STATUS1				0x07    
+#define MFRC522_REG_STATUS2				0x08    
 #define MFRC522_REG_FIFO_DATA			0x09
 #define MFRC522_REG_FIFO_LEVEL			0x0A
 #define MFRC522_REG_WATER_LEVEL			0x0B
@@ -89,7 +145,7 @@ typedef enum {
 #define MFRC522_REG_BIT_FRAMING			0x0D
 #define MFRC522_REG_COLL				0x0E
 #define MFRC522_REG_RESERVED01			0x0F
-//Page 1: Command
+//Page 1: Command 
 #define MFRC522_REG_RESERVED10			0x10
 #define MFRC522_REG_MODE				0x11
 #define MFRC522_REG_TX_MODE				0x12
@@ -106,8 +162,8 @@ typedef enum {
 #define MFRC522_REG_RESERVED13			0x1D
 #define MFRC522_REG_RESERVED14			0x1E
 #define MFRC522_REG_SERIALSPEED			0x1F
-//Page 2: CFG
-#define MFRC522_REG_RESERVED20			0x20
+//Page 2: CFG    
+#define MFRC522_REG_RESERVED20			0x20  
 #define MFRC522_REG_CRC_RESULT_M		0x21
 #define MFRC522_REG_CRC_RESULT_L		0x22
 #define MFRC522_REG_RESERVED21			0x23
@@ -123,7 +179,7 @@ typedef enum {
 #define MFRC522_REG_T_RELOAD_L			0x2D
 #define MFRC522_REG_T_COUNTER_VALUE_H	0x2E
 #define MFRC522_REG_T_COUNTER_VALUE_L	0x2F
-//Page 3:TestRegister
+//Page 3:TestRegister 
 #define MFRC522_REG_RESERVED30			0x30
 #define MFRC522_REG_TEST_SEL1			0x31
 #define MFRC522_REG_TEST_SEL2			0x32
@@ -133,12 +189,12 @@ typedef enum {
 #define MFRC522_REG_AUTO_TEST			0x36
 #define MFRC522_REG_VERSION				0x37
 #define MFRC522_REG_ANALOG_TEST			0x38
-#define MFRC522_REG_TEST_ADC1			0x39
-#define MFRC522_REG_TEST_ADC2			0x3A
-#define MFRC522_REG_TEST_ADC0			0x3B
-#define MFRC522_REG_RESERVED31			0x3C
+#define MFRC522_REG_TEST_ADC1			0x39  
+#define MFRC522_REG_TEST_ADC2			0x3A   
+#define MFRC522_REG_TEST_ADC0			0x3B   
+#define MFRC522_REG_RESERVED31			0x3C   
 #define MFRC522_REG_RESERVED32			0x3D
-#define MFRC522_REG_RESERVED33			0x3E
+#define MFRC522_REG_RESERVED33			0x3E   
 #define MFRC522_REG_RESERVED34			0x3F
 //Dummy byte
 #define MFRC522_DUMMY					0x00
@@ -186,7 +242,7 @@ extern TM_MFRC522_Status_t TM_MFRC522_Compare(uint8_t* CardID, uint8_t* CompareI
  * Private functions
  */
 extern unsigned char	SPI2_ReadWrite(unsigned char writedat);
-
+ 
 extern 	void RFID_SPI_Configuration(void);
 extern void TM_MFRC522_InitSPI(void);
 extern void TM_MFRC522_WriteRegister(uint8_t addr, uint8_t val);
@@ -206,5 +262,16 @@ extern TM_MFRC522_Status_t TM_MFRC522_Read(uint8_t blockAddr, uint8_t* recvData)
 extern TM_MFRC522_Status_t TM_MFRC522_Write(uint8_t blockAddr, uint8_t* writeData);
 extern void TM_MFRC522_Halt(void);
 extern uint8_t getFirmwareVersion(void);
+TM_MFRC522_Status_t karta_v_zozname(uint8_t* CardID);
+TM_MFRC522_Status_t pridaj_kartu(uint8_t* CardID);
+TM_MFRC522_Status_t odober_kartu(uint8_t* CardID);
+void zapisanie(void);
+void vymazanie(void);
+void zapis_pristupu(uint8_t* CardID);
+void vypis_pristupov(void);
+void prepisanie(void);
+void kontrola_zoznamu(void);
 
-#endif /* RFID_H_ */
+
+#endif
+

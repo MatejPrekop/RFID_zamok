@@ -1,12 +1,18 @@
-/*
- * spi.h
- *
- *  Created on: 17. 12. 2016
- *      Author: Mallto
- */
+/**
+  ******************************************************************************
+  * @file    firmware/src/mcu/spi.h
+  * @author  Jozef Rodina
+  * @version V1.0.0
+  * @date    24-January-2012
+  * @brief   SPI configuration file.
+  ******************************************************************************
+  *
+  * <h2><center>&copy; COPYRIGHT 2012 Jozef Rodina</center></h2>
+  ******************************************************************************
+  */
 
-#ifndef SPI_H_
-#define SPI_H_
+#ifndef __SPI_H
+#define __SPI_H
 
 
 void initSPI(void);
@@ -24,5 +30,4 @@ void cd_reset(void);
 void initRES_Pin(void);
 void res_set(void);
 void res_reset(void);
-
-#endif /* SPI_H_ */
+#endif
