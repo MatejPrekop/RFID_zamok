@@ -28,6 +28,7 @@ char bufferRFID[30];
 char bufferDisplay[10];
 
 unsigned char MyID[5] = { 0x1a, 0x18, 0x3a, 0x45, 0x7d };	//My card on my keys
+//unsigned char MyID[5] = "";
 
 void unless_loop(void);
 void RCC_Configuration(void);
@@ -40,7 +41,6 @@ void Send_string_uart(const char*);
 void Send_char_uart(char);
 
 void USART1_IRQHandler(void);
-
 
 int main(void) {
 	setLed();

@@ -150,5 +150,7 @@ void lcdCircle(int16_t xCentre, int16_t yCentre, int16_t radius, uint16_t colour
 
 void lcdPutCh(unsigned char character, uint8_t x, uint8_t y, uint16_t fgColour, uint16_t bgColour);
 void lcdPutS(const char *string, uint8_t x, uint8_t y, uint16_t fgColour, uint16_t bgColour);
-
+void welcome(void);
+void ok(void);
+void vykricnik(void);
 #endif /* ILI9163LCD_H_ */
