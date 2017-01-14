@@ -41,6 +41,7 @@ void Send_char_uart(char);
 
 void USART1_IRQHandler(void);
 
+
 int main(void) {
 	setLed();
 	unsigned char CardID[5];
@@ -143,6 +144,7 @@ int main(void) {
 	}
 
 } /*--------------End Main------------------*/
+
 /*
  *************************************************************************************************************************************
  *							  								LOCAL FUNCTIONS															*
@@ -299,7 +301,49 @@ void USART2_IRQHandler() {
 }
 
 void setLed(void) {
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
+	GPIO_InitTypeDef gpioInitStruc;
 
+	gpioInitStruc.GPIO_Pin = GPIO_Pin_0;
+	gpioInitStruc.GPIO_Mode = GPIO_Mode_OUT;
+	gpioInitStruc.GPIO_OType = GPIO_OType_PP;
+	gpioInitStruc.GPIO_PuPd = GPIO_PuPd_UP;
+	gpioInitStruc.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_Init(GPIOA, &gpioInitStruc);
+
+	gpioInitStruc.GPIO_Pin = GPIO_Pin_1;
+	gpioInitStruc.GPIO_Mode = GPIO_Mode_OUT;
+	gpioInitStruc.GPIO_OType = GPIO_OType_PP;
+	gpioInitStruc.GPIO_PuPd = GPIO_PuPd_UP;
+	gpioInitStruc.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_Init(GPIOA, &gpioInitStruc);
+
+	gpioInitStruc.GPIO_Pin = GPIO_Pin_4;
+	gpioInitStruc.GPIO_Mode = GPIO_Mode_OUT;
+	gpioInitStruc.GPIO_OType = GPIO_OType_PP;
+	gpioInitStruc.GPIO_PuPd = GPIO_PuPd_UP;
+	gpioInitStruc.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_Init(GPIOA, &gpioInitStruc);
+
+	gpioInitStruc.GPIO_Pin = GPIO_Pin_6;
+	gpioInitStruc.GPIO_Mode = GPIO_Mode_OUT;
+	gpioInitStruc.GPIO_OType = GPIO_OType_PP;
+	gpioInitStruc.GPIO_PuPd = GPIO_PuPd_UP;
+	gpioInitStruc.GPIO_Speed = GPIO_Speed_40MHz;
+	GPIO_Init(GPIOA, &gpioInitStruc);
+
+	gpioInitStruc.GPIO_Pin = GPIO_Pin_8;
+	gpioInitStruc.GPIO_Mode = GPIO_Mode_IN;
+	gpioInitStruc.GPIO_OType = GPIO_OType_PP;
+	gpioInitStruc.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOB, &gpioInitStruc);
+
+	gpioInitStruc.GPIO_Pin = GPIO_Pin_9;
+	gpioInitStruc.GPIO_Mode = GPIO_Mode_IN;
+	gpioInitStruc.GPIO_OType = GPIO_OType_PP;
+	gpioInitStruc.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_Init(GPIOB, &gpioInitStruc);
 }
 
 #ifdef  USE_FULL_ASSERT
@@ -338,4 +382,3 @@ void __assert_func(const char *file, int line, const char *func,
 void __assert(const char *file, int line, const char *failedexpr) {
 	__assert_func(file, line, NULL, failedexpr);
 }
-
